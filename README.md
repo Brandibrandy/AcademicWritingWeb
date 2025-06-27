@@ -210,6 +210,367 @@ Build a smart, modern, dynamic web application for sharing and providing academi
 
 ---
 
+**
+text-based wireframe / layout sketch plan**
 
-‎
+---
+
+## 🎨 GENERAL DESIGN SYSTEM
+
+✅ Fixed **LEFT SIDEBAR** navigation on desktop
+✅ Collapsible hamburger menu on mobile
+✅ Fixed **FOOTER** on all pages
+✅ Consistent header, typography, colors
+
+---
+
+# 📐 GLOBAL LAYOUT
+
+```
+---------------------------------------------------
+| Sidebar |           Main Content Area          |
+| (fixed) |                                       |
+|         |                                       |
+|         |                                       |
+---------------------------------------------------
+|                 Fixed Footer                   |
+---------------------------------------------------
+```
+
+✅ Sidebar:
+
+* Always visible on desktop
+* Links:
+
+  * Home
+  * Writing Styles
+  * Writing Tools
+  * Writing Tests
+  * FAQs
+  * Account/Profile
+  * Logout
+
+✅ Footer:
+
+* Privacy Policy
+* Terms
+* Contact
+
+---
+
+# 1️⃣ HOMEPAGE
+
+## Wireframe sections
+
+**Hero Section**
+
+```
+-------------------------------------------------
+| Banner Image / Illustration                   |
+| "Welcome to [Site Name]"                      |
+| "Your Academic Writing Companion"             |
+| [Get Started Button]                          |
+-------------------------------------------------
+```
+
+**Features Section**
+
+```
+-------------------------------------------------
+| "Why use this platform?"                      |
+| Icon + Text Grid:                             |
+| - Styles Guidance                             |
+| - Writing Tools                               |
+| - Interactive Tests                           |
+| - Expert Tips                                 |
+-------------------------------------------------
+```
+
+**How It Works Section**
+
+```
+-------------------------------------------------
+| "How It Works" Steps                          |
+| 1. Sign Up                                    |
+| 2. Explore Guides                             |
+| 3. Practice Tests                             |
+| 4. Improve Writing                            |
+-------------------------------------------------
+```
+
+**Highlights Section**
+
+```
+-------------------------------------------------
+| "Popular Styles"                             |
+| Cards with APA, MLA, Harvard, etc.           |
+| Click to go to Writing Styles page           |
+-------------------------------------------------
+```
+
+**Testimonials / Example Use**
+
+```
+-------------------------------------------------
+| "What Students Say"                           |
+| Carousel of testimonials                      |
+-------------------------------------------------
+```
+
+**Call To Action**
+
+```
+-------------------------------------------------
+| "Ready to Improve Your Writing?"              |
+| [Sign Up / Login Button]                      |
+-------------------------------------------------
+```
+
+---
+
+# 2️⃣ WRITING STYLES PAGE
+
+**Page Intro**
+
+```
+-------------------------------------------------
+| "Academic Writing Styles"                     |
+| Brief description                             |
+-------------------------------------------------
+```
+
+**Styles Selector**
+
+```
+-------------------------------------------------
+| Tabs or Accordion                             |
+| [APA] [MLA] [Harvard] [Chicago] [IEEE] etc.   |
+-------------------------------------------------
+```
+
+**Style Content (on select)**
+
+```
+-------------------------------------------------
+| Style Name: APA                               |
+| Overview Text                                 |
+| Formatting Rules                              |
+| In-Text Citation Guide                        |
+| Reference List Guide                          |
+| Example Template / Download                   |
+-------------------------------------------------
+```
+
+✅ Optional:
+
+* Search bar to find styles
+* Sidebar with style links
+
+---
+
+# 3️⃣ WRITING TOOLS PAGE
+
+**Intro Section**
+
+```
+-------------------------------------------------
+| "Essential Academic Writing Tools"            |
+| Brief explanation                             |
+-------------------------------------------------
+```
+
+**Tools List (Cards or Accordions)**
+
+```
+-------------------------------------------------
+| Tool Name: Grammarly                          |
+| Short description                             |
+| How to Use                                    |
+| Pros / Cons                                   |
+| Link / Screenshot                             |
+-------------------------------------------------
+| Tool Name: Turnitin                           |
+| ...                                           |
+-------------------------------------------------
+```
+
+✅ Optional:
+
+* Category filters (AI, Plagiarism, Grammar, etc.)
+* Demo videos
+
+---
+
+# 4️⃣ WRITING TESTS PAGE
+
+**Intro**
+
+```
+-------------------------------------------------
+| "Test Your Writing Knowledge"                 |
+| Brief explanation of academic standards       |
+-------------------------------------------------
+```
+
+**Guidelines Section**
+
+```
+-------------------------------------------------
+| - Clarity                                     |
+| - Structure                                   |
+| - Referencing                                 |
+| - Academic Tone                               |
+-------------------------------------------------
+```
+
+**Quiz Section**
+
+```
+-------------------------------------------------
+| [Start Quiz Button]                           |
+-------------------------------------------------
+| Question 1                                    |
+| What is APA citation format?                  |
+| ( ) Option A                                  |
+| ( ) Option B                                  |
+| ( ) Option C                                  |
+| [Next Button]                                 |
+-------------------------------------------------
+```
+
+**Results Page**
+
+```
+-------------------------------------------------
+| "Your Score: 8/10"                            |
+| Feedback on incorrect answers                 |
+| Tips for improvement                          |
+| [Retake Quiz]                                 |
+-------------------------------------------------
+```
+
+✅ Optional:
+
+* Save user scores to profile
+
+---
+
+# 5️⃣ FAQs PAGE
+
+**Intro**
+
+```
+-------------------------------------------------
+| "Frequently Asked Questions"                  |
+| Brief intro                                   |
+-------------------------------------------------
+```
+
+**Search Bar**
+
+```
+-------------------------------------------------
+| [Search FAQs]                                 |
+-------------------------------------------------
+```
+
+**FAQ Accordion List**
+
+```
+-------------------------------------------------
+| Q1: How do I cite sources correctly?          |
+| [Expand for Answer]                           |
+-------------------------------------------------
+| Q2: Which style should I use?                 |
+| [Expand for Answer]                           |
+-------------------------------------------------
+```
+
+✅ Optional:
+
+* Categories or tags
+
+---
+
+# 6️⃣ ACCOUNT PAGES
+
+**Login Page**
+
+```
+-------------------------------------------------
+| "Login to Your Account"                       |
+| Email: [____]                                 |
+| Password: [____]                              |
+| [Login Button]                                |
+| [Forgot Password?]                            |
+| [Register Instead]                            |
+-------------------------------------------------
+```
+
+**Register Page**
+
+```
+-------------------------------------------------
+| "Create an Account"                           |
+| Email: [____]                                 |
+| Password: [____]                              |
+| Confirm Password: [____]                      |
+| [Register Button]                             |
+| [Login Instead]                               |
+-------------------------------------------------
+```
+
+**Profile Page**
+
+```
+-------------------------------------------------
+| "Your Profile"                                |
+| Email: [user@example.com]                     |
+| Change Password                               |
+| View Saved Materials (optional)               |
+| View Test Results (optional)                  |
+| [Logout Button]                               |
+-------------------------------------------------
+```
+
+---
+
+# 7️⃣ FIXED SIDEBAR NAVIGATION
+
+**Example Layout**
+
+```
+-------------------------------------------------
+| [Site Logo]                                   |
+-------------------------------------------------
+| [Home]                                        |
+| [Writing Styles]                              |
+| [Writing Tools]                               |
+| [Writing Tests]                               |
+| [FAQs]                                        |
+| [Account/Profile]                             |
+| [Logout]                                      |
+-------------------------------------------------
+```
+
+✅ Collapsible on mobile (hamburger icon)
+
+---
+
+# 8️⃣ FIXED FOOTER
+
+**Example Layout**
+
+```
+-------------------------------------------------
+| [Privacy Policy]  |  [Terms of Service]       |
+| [Contact/Support]                             |
+-------------------------------------------------
+```
+
+✅ Small, low-profile, always visible
+
+---
+
+
 ‎
