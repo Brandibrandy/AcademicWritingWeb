@@ -680,6 +680,15 @@ CREATE TABLE user_test_results (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (test_id) REFERENCES writing_tests(id) ON DELETE CASCADE
 );
+### 9 `admins` table
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
 ---
@@ -748,4 +757,230 @@ CREATE TABLE user_test_results (
 
 
 
-‎
+
+**Admin Dashboard** 
+
+# ✅ CORE FEATURES OF THE ADMIN DASHBOARD
+
+## 1️⃣ Authentication for Admins
+
+* Separate login page for admins
+* Role-based access (admin vs regular user)
+* Password management
+
+✅ Purpose: Only authorized admins can edit content.
+
+---
+
+## 2️⃣ Admin Home Page / Dashboard Overview
+
+* Quick stats / KPIs
+
+  * Total users
+  * Total writing styles
+  * Total writing tools
+  * Total tests / quizzes
+* Recent activity
+* Links to all management sections
+
+✅ Purpose: Fast snapshot of the platform
+
+---
+
+## 3️⃣ Manage Users
+
+* List all users
+* Search/filter by email
+* View user details
+* Disable / enable accounts
+* Reset passwords (optional)
+
+✅ Purpose: User moderation and support
+
+---
+
+## 4️⃣ Manage Writing Styles
+
+* View all styles in a table
+* Add new style
+* Edit existing style
+* Delete style
+
+✅ Fields:
+
+* Name
+* Description
+* Formatting rules
+* In-text guide
+* Reference guide
+* Example template link
+
+✅ Purpose: Keep style guides up to date
+
+---
+
+## 5️⃣ Manage Writing Tools
+
+* View all tools
+* Add new tool
+* Edit existing tool
+* Delete tool
+
+✅ Fields:
+
+* Name
+* Description
+* How to use
+* Pros / cons
+* External link
+* Image URL
+
+✅ Purpose: Recommend and update tools dynamically
+
+---
+
+## 6️⃣ Manage FAQs
+
+* View all FAQs
+* Add new FAQ
+* Edit existing FAQ
+* Delete FAQ
+
+✅ Fields:
+
+* Question
+* Answer
+* Category
+
+✅ Purpose: Keep FAQ relevant
+
+---
+
+## 7️⃣ Manage Writing Tests
+
+✅ Parent/child relationship management:
+
+* **Tests List View**
+
+  * Title
+  * Description
+  * # of questions
+* Add new test
+* Edit/delete test
+
+✅ When editing a test:
+
+* Add/Edit/Delete questions
+
+  * Question text
+  * Add/Edit/Delete answer options
+
+    * Option text
+    * Mark correct
+
+✅ Purpose: Build and maintain quizzes interactively
+
+---
+
+## 8️⃣ View User Test Results
+
+* Search by user/email
+* View past scores
+* Filter by test
+* Export to CSV (optional)
+
+✅ Purpose: See how users perform
+
+
+
+
+# ✅ EXAMPLE ADMIN WIREFRAME LAYOUT (TEXTUAL)
+
+## Admin Dashboard Sidebar
+
+```
+---------------------------------
+|  [Site Logo]                  |
+---------------------------------
+| [Dashboard Overview]          |
+| [Users]                       |
+| [Writing Styles]              |
+| [Writing Tools]               |
+| [FAQs]                        |
+| [Writing Tests]               |
+| [User Test Results]           |
+| [Logout]                      |
+---------------------------------
+```
+
+✅ Sidebar always visible (or collapsible on mobile)
+
+---
+
+## Example Admin Home Page
+
+```
+-------------------------------------------------
+| "Admin Dashboard"                             |
+| Stats Cards:                                  |
+| - Total Users                                 |
+| - Total Writing Styles                        |
+| - Total Writing Tools                         |
+| - Total Tests                                 |
+-------------------------------------------------
+| Recent Activity Feed                          |
+-------------------------------------------------
+```
+
+---
+
+## Manage Writing Styles Page
+
+```
+-------------------------------------------------
+| [Add New Style Button]                        |
+-------------------------------------------------
+| Table/List View:                              |
+| - Name                                        |
+| - Actions: Edit / Delete                      |
+-------------------------------------------------
+```
+
+✅ Add/Edit Form
+
+```
+-------------------------------------------------
+| Name                                          |
+| Description                                   |
+| Formatting Rules                              |
+| In-Text Guide                                 |
+| Reference Guide                               |
+| Example Template Link                         |
+| [Save Button]                                 |
+-------------------------------------------------
+```
+
+---
+
+## Manage Writing Tests Page
+
+✅ Master/Detail UI
+
+```
+-------------------------------------------------
+| Test List:                                    |
+| - Title                                       |
+| - # of Questions                              |
+| - Actions: Edit / Delete                      |
+-------------------------------------------------
+| When Editing Test:                            |
+| - Edit title/description                      |
+| - Questions Table:                            |
+|   - Question Text                             |
+|   - Edit / Delete                             |
+|   - Add New Question                          |
+| - For Each Question:                          |
+|   - Option List (with is_correct toggle)      |
+|   - Add/Edit/Delete Options                   |
+-------------------------------------------------
+
