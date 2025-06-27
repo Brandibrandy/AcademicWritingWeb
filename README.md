@@ -570,7 +570,182 @@ text-based wireframe / layout sketch plan**
 
 ✅ Small, low-profile, always visible
 
+
+
+
 ---
+
+## ⚡ FINAL TABLE LIST
+
+We’ll define these 8 tables:
+
+1. users
+2. writing\_styles
+3. writing\_tools
+4. faqs
+5. writing\_tests
+6. test\_questions
+7. test\_options
+8. user\_test\_results
+
+---
+
+## ✅ FULL MYSQL SCHEMA
+
+```sql
+-- 1️⃣ USERS TABLE
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 2️⃣ WRITING_STYLES TABLE
+CREATE TABLE writing_styles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    formatting_rules TEXT,
+    intext_guide TEXT,
+    reference_guide TEXT,
+    example_template TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 3️⃣ WRITING_TOOLS TABLE
+CREATE TABLE writing_tools (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    how_to_use TEXT,
+    pros TEXT,
+    cons TEXT,
+    external_link VARCHAR(255),
+    image_url VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 4️⃣ FAQS TABLE
+CREATE TABLE faqs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    category VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 5️⃣ WRITING_TESTS TABLE
+CREATE TABLE writing_tests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 6️⃣ TEST_QUESTIONS TABLE
+CREATE TABLE test_questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    test_id INT NOT NULL,
+    question_text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (test_id) REFERENCES writing_tests(id) ON DELETE CASCADE
+);
+
+-- 7️⃣ TEST_OPTIONS TABLE
+CREATE TABLE test_options (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question_id INT NOT NULL,
+    option_text TEXT NOT NULL,
+    is_correct BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (question_id) REFERENCES test_questions(id) ON DELETE CASCADE
+);
+
+-- 8️⃣ USER_TEST_RESULTS TABLE
+CREATE TABLE user_test_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    test_id INT NOT NULL,
+    score INT,
+    taken_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (test_id) REFERENCES writing_tests(id) ON DELETE CASCADE
+);
+```
+
+---
+
+## ✅ EXPLANATION (TABLE BY TABLE)
+
+### 🟣 1. `users`
+
+* Stores user accounts
+* `email` is unique
+* `password_hash` stores hashed password (never plain text!)
+
+---
+
+### 🟣 2. `writing_styles`
+
+* Holds all style notes (APA, MLA, etc.)
+* Rich text fields for rules and guides
+
+---
+
+### 🟣 3. `writing_tools`
+
+* Describes AI, plagiarism checkers, etc.
+* Includes optional external link and image URL
+
+---
+
+### 🟣 4. `faqs`
+
+* Question/answer pairs
+* Optional `category` for grouping
+
+---
+
+### 🟣 5. `writing_tests`
+
+* Metadata for each quiz/test
+* Descriptive title and instructions
+
+---
+
+### 🟣 6. `test_questions`
+
+* Links to `writing_tests`
+* Each question belongs to one test
+
+---
+
+### 🟣 7. `test_options`
+
+* Links to `test_questions`
+* Stores multiple-choice options
+* Marks correct answer with `is_correct`
+
+---
+
+### 🟣 8. `user_test_results`
+
+* Links users to test attempts
+* Stores scores and timestamp
+
+---
+
+
+
 
 
 ‎
