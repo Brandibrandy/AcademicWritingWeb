@@ -195,7 +195,8 @@ body, html
 }
 
 /* PUSH MAIN CONTENT BELOW HEADER */
-.main-wrapper {
+.main-wrapper 
+{
   margin-left: 220px; /* assuming a sidebar is present */
   display: flex;
   flex-direction: column;
