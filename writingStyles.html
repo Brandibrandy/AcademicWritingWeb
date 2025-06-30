@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academic Writing Web App</title>
+  <link rel="stylesheet" href="writingStyles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+ <!-- Sidebar -->
+<nav class="sidebar">
+  
+  <h2 class="logo">AcademicBestWriter</h2>
+  <hr class="styled-line">
+
+  <ul class="nav-links">
+    <li><a href="sideBar.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span>Writing Styles</span></a></li>
+    <li><a href="#"><i class="fas fa-tools"></i><span>Writing Tools</span></a></li>
+    <li><a href="#"><i class="fas fa-clipboard-check"></i><span>Writing Tests</span></a></li>
+    <li><a href="#"><i class="fas fa-question-circle"></i><span>FAQs</span></a></li>
+    <li><a href="#"><i class="fas fa-user"></i><span>Account</span></a></li>
+    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+  </ul>
+
+  <hr class="styled-line">
+
+  <!-- Lower Sidebar -->
+  <ul class="lowernavlinks">
+    <li><a href="#"><i class="fas fa-headset"></i><span>Support</span></a></li>
+    <li><a href="#"><i class="fas fa-robot"></i><span>HelperBot</span></a></li>
+  </ul>
+</nav>
+
+  
+
+  <!-- Page Wrapper (main content + footer) -->
+  <div class="main-wrapper">
+    <header class="main-header">
+  <div class="header-content">
+    <h1>EmpowerWords</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search topics, guides, or tools...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-buttons">
+      <button class="cta-btn small">Login</button>
+      <button class="cta-btn small secondary">Sign Up</button>
+    </div>
+  </div>
+</header>
+
+   <section id="overview">
+  <h2>1. Overview of Citation Styles</h2>
+  <img src="images/overview.svg" alt="Overview Illustration" class="float-img-right" />
+  <p>Citing sources is a crucial part of academic and professional writing. It shows that you respect intellectual property, enhances the credibility of your work, and enables readers to trace your sources. There are three main systems used in citation: parenthetical (or author–date), numeric, and note–bibliography. Each system is preferred by specific disciplines. For example, APA style, a parenthetical system, is widely used in psychology and social sciences, while numeric styles like IEEE are common in engineering and computing. Humanities fields, such as literature and history, often use note-based systems like Chicago Notes & Bibliography or MHRA. Understanding the expectations of your field helps ensure you choose and use the appropriate style correctly.</p>
+</section>
+
+<section id="apa">
+  <h2>2. APA Style (7th Edition)</h2>
+  <div class="style-info">
+    <img src="images/apa.png" alt="APA Logo" />
+    <p>APA (American Psychological Association) style is primarily used in the social sciences, including psychology, education, and sociology. It uses an author–date citation system, meaning in-text citations include the author's last name and the year of publication—either in parentheses, such as (Smith, 2020), or in the narrative, as in Smith (2020). The reference list at the end of the paper includes full publication details, with entries arranged alphabetically by the author's surname. APA style emphasizes clarity and consistency, using sentence case for titles, italicizing book and journal names, and including DOIs for online sources when available. Common pitfalls in APA include incorrect formatting of multiple authors, failure to use italics properly, and confusion over when to use “et al.”—which is used for in-text citations with three or more authors. APA also requires a running head and page numbers on student papers, although some institutions may adjust this requirement.</p>
+  </div>
+</section>
+
+<section id="mla">
+  <h2>3. MLA Style (9th Edition)</h2>
+  <div class="style-info">
+    <img src="images/mla.png" alt="MLA Logo" />
+    <p>MLA (Modern Language Association) style is commonly used in humanities disciplines, especially in literature, language studies, and the arts. It uses an author–page number system for in-text citations—for example, (Smith 42)—which directs readers to a detailed “Works Cited” page at the end of the document. Unlike APA, MLA emphasizes the work and where it was found, rather than when it was published. Titles of full works such as books are italicized, while titles of shorter works like articles are placed in quotation marks. A unique feature of MLA is its "container system," which refers to a work being part of a larger whole (e.g., an article in a journal or a video on YouTube). Each element in the citation is followed by punctuation and formatting rules that signal its role. Common errors include misplacing quotation marks, incorrect punctuation, and not identifying the correct container when citing online sources.</p>
+  </div>
+</section>
+
+<section id="chicago">
+  <h2>4. Chicago Style</h2>
+  <h3>a. Author–Date</h3>
+  <p>The Author–Date version of Chicago style is mainly used in the sciences and social sciences. It uses parenthetical in-text citations similar to APA and Harvard styles—for example, (Smith 2020). The corresponding bibliography entry appears at the end of the paper and provides complete details in alphabetical order. This format suits works with frequent citations and allows easy cross-referencing between text and sources. Unlike APA, the date comes directly after the author’s name in the bibliography, and book titles are italicized. It's important to format citations precisely, as even small punctuation differences carry meaning in Chicago style.</p>
+  <h3>b. Notes & Bibliography</h3>
+  <p>Chicago Notes & Bibliography (NB) is popular in history, literature, and the arts, where deeper engagement with sources is common. It uses numbered superscripts in the text, with corresponding footnotes or endnotes that provide full citation details on first mention and abbreviated forms for subsequent references. For example, a first note may include full details: John Smith, <i>Social Behavior Patterns</i> (Chicago: University of Chicago Press, 2020), 32. Later notes can be shortened to Smith, <i>Social Behavior</i>, 32. A bibliography is also included, listing all sources in full. This system offers flexibility for citing unusual or archival sources and allows room for commentary within the notes, which makes it favored in disciplines that require contextual depth.</p>
+</section>
+
+<section id="harvard">
+  <h2>5. Harvard Style</h2>
+  <p>Harvard style is a widely used citation system in the UK and other Commonwealth countries, especially in the social sciences, business, and education. It uses an author–date format similar to APA, but often with slight variations depending on institutional preferences. In-text citations include the author's last name and the year—e.g., (Smith, 2020)—and correspond to a detailed reference list. The references are listed alphabetically and usually formatted as: Smith, J. (2020). <i>Title of Book</i>. Publisher. While flexible, Harvard can be tricky due to regional variations in punctuation, use of italics, and order of information. Students should always confirm the specific version used by their institution. Key tips include consistent formatting, careful punctuation, and using access dates for online sources when required.</p>
+</section>
+
+<section id="ieee">
+  <h2>6. IEEE Style</h2>
+  <p>IEEE (Institute of Electrical and Electronics Engineers) style is a numeric citation system used in engineering, computer science, and other technical fields. Citations are given using numbers enclosed in square brackets—e.g., [1]—that correspond to a reference list ordered by the sequence of appearance in the text. Each reference follows a specific format and includes author initials, abbreviated journal names, and publication details. For example: [1] J. Smith, <i>Engineering the Future</i>, 2nd ed., Oxford: Oxford University Press, 2020. IEEE style favors concise references and prioritizes clarity for technical readers. Key challenges include correctly formatting abbreviations, placing citations after punctuation, and maintaining the correct numerical order throughout your document.</p>
+</section>
+
+<section id="vancouver">
+  <h2>7. Vancouver Style</h2>
+  <p>Vancouver style is widely used in medicine and the health sciences. It is a numeric citation style where in-text citations are indicated by a number—either in brackets (1), as superscript¹, or in parentheses. These numbers correspond to a reference list that is ordered in the sequence the sources appear in the text, not alphabetically. Each reference provides detailed publication information, including authors' initials, journal abbreviations, volume and issue numbers, and page ranges. For example: 1. Smith J, Brown L. Heart disease statistics. <i>Med J Int</i>. 2020;22(3):45–50. Vancouver follows strict guidelines for formatting and is recognized for its efficiency and suitability in dense, data-driven academic writing. It is essential to use correct punctuation, preserve author order, and use official journal abbreviations.</p>
+</section>
+
+<section id="numeric">
+  <h2>8. Other Numeric Styles (AMA, ACS, CSE)</h2>
+  <p>Several other numeric styles are used in specific scientific and medical fields. The AMA (American Medical Association) style is used widely in medicine and public health. It uses superscript numbers for in-text citations and a reference list formatted with specific rules about author names, journal abbreviations, and publication details. ACS (American Chemical Society) style is used in chemistry and allows for three citation systems: superscript numbers, italic numbers in parentheses, or author–date format. CSE (Council of Science Editors) is common in biology and environmental sciences and offers three systems: name–year, citation–sequence (numeric order), and citation–name (alphabetized list with numbered references). Each of these systems requires precision, especially in source formatting, order, and punctuation. Users must follow discipline-specific standards to avoid inconsistencies.</p>
+</section>
+
+<section id="legal">
+  <h2>9. Legal Citation Styles (Bluebook, OSCOLA, MHRA)</h2>
+  <p>Legal citation styles vary significantly from academic citation systems and often rely on footnotes for referencing. The Bluebook is the primary citation guide for U.S. legal writing and includes rules for citing court cases, statutes, constitutions, and legal journals. It uses footnotes and highly abbreviated formats, e.g., <i>Brown v. Board of Education</i>, 347 U.S. 483 (1954). OSCOLA (Oxford Standard for the Citation of Legal Authorities) is used in UK law and emphasizes clarity, minimal punctuation, and footnote-based citations. MHRA (Modern Humanities Research Association) style is used in the UK for humanities research and combines footnotes with a bibliography, allowing detailed referencing and source commentary. Legal citation requires attention to case formatting, hierarchy of authority, and jurisdictional variation.</p>
+</section>
+
+<section id="choosing">
+  <h2>10. Choosing the Right Style + Best Practices</h2>
+  <p>Choosing the correct citation style depends on your academic discipline, institutional requirements, and the type of source you are using. For instance, APA is ideal for psychology and education, MLA suits literature and the arts, while IEEE is preferred in engineering. Legal writing uses specific styles like Bluebook or OSCOLA. Using the wrong citation system or mixing styles in a single paper can confuse readers and undermine credibility. Best practices include checking your institution’s guidelines, using citation management tools like Zotero or Mendeley, and double-checking punctuation, capitalization, and formatting. It’s also essential to avoid common mistakes such as inconsistent citation order, missing access dates, or misformatted titles. With the right tools and attention to detail, students can master any citation style.</p>
+  <div class="citation-tools">
+    <h3>Helpful Tools</h3>
+    <ul>
+      <li>Zotero</li>
+      <li>Scribbr</li>
+      <li>Citation Machine</li>
+      <li>Mendeley</li>
+    </ul>
+  </div>
+</section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 AcademicWritingWeb | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
