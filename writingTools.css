@@ -10,7 +10,7 @@ body, html
 {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #767a7a;
+  background-color: #70ebf0;
 }
 
 /* SIDEBAR: fixed on the left */
@@ -224,104 +224,206 @@ body, html
   }
 }
 
-/* Content Area Styling */
-main, .content {
-  padding: 2rem 2.5rem;
-  margin-left: 250px; /* assuming sidebar is 250px */
-  margin-top: 80px;    /* assuming header is 80px */
-  margin-bottom: 60px; /* assuming footer is 60px */
-  max-width: 1000px;
-}
 
-/* Section Cards */
-section {
-  background: #ffffff;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  scroll-margin-top: 100px;
-}
-
-section h2 {
-  font-size: 1.6rem;
-  color: #2952e1;
-  margin-bottom: 1rem;
-  position: relative;
-}
-section h3 {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-  color: #444;
-}
-
-section p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Images and Logos */
-.float-img-right {
-  float: right;
-  max-width: 160px;
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-.style-info {
+.main-content 
+{
+  flex: 1; /* allows the content to grow and fill available space */
+  padding: 10px; /* outer spacing */
+  background: #f5f5f5; /* light gray background */
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-}
-.style-info img {
-  width: 80px;
-  height: auto;
-}
-.style-info p {
-  flex: 1;
+  flex-direction: column; /* stack child sections vertically */
+  gap: 20px; /* space between sections */
+  width: 100%;
 }
 
-/* Tool Box */
-.citation-tools {
-  background: #eef4ff;
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #2952e1;
-  border-radius: 10px;
-  margin-top: 1rem;
+.main-content section 
+{
+  background: #fff; /* white card background */
+  border-radius: 12px; /* rounded corners */
+  padding: 30px; /* internal spacing */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* soft shadow for elevation */
 }
-.citation-tools h3 {
+
+.main-content h2 
+{
+  font-size: 1.8em; /* larger heading size */
+  margin-bottom: 10px; /* space below heading */
+  color: #2d2d55; /* dark blue for headings */
+}
+
+.main-content p, 
+.main-content li 
+{
+  font-size: 1.05em; /* slightly larger text for readability */
+  line-height: 1.7; /* increased line spacing for clarity */
+  color: #070404; /* dark gray text */
+}
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f9fc;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.writingtools-hero {
+  background-image: url('https://images.unsplash.com/photo-1584697964273-725f349b1f44?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 60px;
+  border-radius: 16px;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1.5s ease;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-overlay .subtext {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.get-started-btn {
+  background: linear-gradient(135deg, #0066cc, #003399);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-.citation-tools ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-}
-.citation-tools li {
-  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 768px) {
-  main, .content {
-    margin-left: 0;
-    padding: 1.5rem;
+.get-started-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0055aa, #001166);
+}
+
+/* Section Styling */
+section[class^='writingtools-'] {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  margin-bottom: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 1s ease-in-out;
+}
+
+section[class^='writingtools-'] h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+  border-left: 6px solid #0066cc;
+  padding-left: 16px;
+}
+
+section[class^='writingtools-'] p {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+section strong {
+  color: #004a99;
+}
+
+/* Fade In Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
   }
-  .float-img-right {
-    float: none;
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-  }
-  .style-info {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .style-info img {
-    margin-bottom: 1rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Buttons in Content (if used) */
+section button {
+  background: #004a99;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+section button:hover {
+  background: #003366;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding: 30px 20px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  section[class^='writingtools-'] {
+    padding: 50px 20px;
+  }
+
+  section[class^='writingtools-'] h2 {
+    font-size: 1.5rem;
+  }
+
+  section[class^='writingtools-'] p {
+    font-size: 1rem;
+  }
+
+  .get-started-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+
+
+
 /* FOOTER SECTION */
 .footer {
   background: #2d2d55;
