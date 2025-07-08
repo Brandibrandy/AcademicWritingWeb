@@ -1,963 +1,1531 @@
-/* Reset and base styles */
-* 
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body, html 
-{
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #70ebf0;
-}
-
-/* SIDEBAR: fixed on the left */
-.sidebar 
-{
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 220px;
-  height: 100vh;
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  overflow-y: auto;
-  z-index: 1000;
-  padding:  0px;
-  gap: 240px;
-  
-}
-
-/* Logo */
-.sidebar .logo 
-{
-  font-size: 1.4em;
-  text-align: center;
-  margin-bottom: 0px;
-  background-color: none;
-}
-.logo
-{
-  max-width: 100%;      /* Prevents the logo from exceeding its container */
-  height: 100px;         /* Maintains aspect ratio */
-  width: 170px;
-  object-fit: contain;  /* Ensures the image scales without distortion */
-  display: block; 
-  
-  margin: 0px;
-
-}
-
-
-/* Horizontal line */
-.styled-line 
-{
-  border: none;
-  height: 1px;
-  background-color: #06090a;
-  margin: 20px 0;
-  border-radius: 1px;
-}
-
-/* Common link list */
-.nav-links
-{
-  list-style: none;
-  margin: 7px;
-  list-style: none;           /* Remove bullet points */
-  padding: 4px;
-  display: flex;              /* Horizontal layout */
-  flex-direction: column;     /* Use row for horizontal, column for vertical */
-  gap: 4px; 
-  align-content: center;
-  text-align: center;  
-
-  
-}
-
-.nav-links li
-{
-  margin: 2%;
-  border: 1px #151529;
-  border-radius: 16px;
-  text-align: center;
-  color: #000000;
-  width: 100%;
-  
-}
-
-
-.nav-links li:hover
-{
-  background-color: #575757;
-}
-
-.nav-links li.active 
-{
-  background-color: #2c2f4a;    /* Or your preferred highlight color */
-}
-
-/* Link styles */
-.nav-links a
-{
-  display: flex;
-  align-items: center;
-  color: #000000;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 7px;
-  width: 150px;
-}
-
-.nav-links a i
-{
-  margin-right: 10px;
-  color: black;
-  min-width: 20px;
-  text-align: center;
-}
-
-/* Hover effect */
-.nav-links a:hover
-{
-  text-decoration: none;
-
-}
-
-
-/* PUSH MAIN CONTENT BELOW HEADER */
-.main-wrapper 
-{
-  margin-left: 220px; /* assuming a sidebar is present */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  
-}
-
-
-
-/* MAIN CONTENT AREA */
-
-/* FIXED HEADER */
-.main-header 
-{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 87px;
-  background: white; /* dark blue background */
-  color: black;
-  display: flex;
-  align-items: center;
-  z-index: 1000; /* ensure it stays above other content */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-left: 220px
-}
-
-/* WRAPPER FOR HEADER CONTENT */
-.header-content 
-{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  
-}
-
-/* SEARCH BAR */
-.search-bar 
-{
-  display: flex;
-  align-items: center;
-  flex: 1;
-  max-width: 500px;
-  margin: 0 20px;
-  border-radius: 18px;
-  gap: 2px;
-  border: #000000 solid;
-  border-width: 2px;
-  padding: auto;
-  background-color: none;
-
-}
-
-.search-bar input 
-{
-  flex: 1;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 14px;
-  font-size: 1em;
-  background-color: white;
-  color: #000000;
-  outline: none;
-  
-}
-
-.search-bar input:active
-{
- border: none;
-}
-
-.search-bar button 
-{
-  padding: 8px 12px;
-  background: #c2c2c2;
-  border: none;
-  color: rgb(0, 0, 0);
-  font-size: 1em;
-  border-radius: 15px;
-  width: 64px;
-  cursor: pointer;
-}
-
-.search-bar button:hover 
-{
-  background: #3f3da3;
-}
-
-/* HEADER BUTTONS */
-.header-buttons
-{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-
-}
-
-.cta-btn.small 
-{
-  padding: 6px 14px;
-  font-size: 0.9em;
-  border-radius: 14px;
-  color: rgb(14, 13, 13);
-  text-decoration: none;
-  background: transparent;
-  border: 1px solid rgb(238, 199, 128);
-  font-weight: bolder;
-
-}
-
-.cta-btn.small.secondary 
-{
-  background: transparent;
-  border: 1px solid rgb(128, 241, 179);
-  border-radius: 12px;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-weight: bolder;
-}
-
-.cta-btn.small:hover 
-{
-  background: rgb(238, 199, 128);
-  color: #000000;
-  text-decoration: none;
-}
-
-.cta-btn.small.secondary:hover 
-{
-  background: rgb(128, 241, 179);
-  color: #000000;
-  text-decoration: none;
-}
-
-/* RESPONSIVE HEADER */
-@media (max-width: 768px) 
-{
-  .header-content 
-  {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .search-bar 
-  {
-    width: 100%;
-    margin: 0;
-  }
-
-  .header-buttons 
-  {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
-
-
-
-
-.main-content 
-{
-  flex: 1; /* allows the content to grow and fill available space */
-  padding: 1%; /* outer spacing */
-  background: #f5f5f5; /* light gray background */
-  display: flex;
-  flex-direction: column; /* stack child sections vertically */
-  gap: 20px; /* space between sections */
-  width: 100%;
-  padding-top: 92px; /* space for fixed header */
-}
-
-.main-content section 
-{
-  background: #fff; /* white card background */
-  border-radius: 12px; /* rounded corners */
-  padding: 30px; /* internal spacing */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* soft shadow for elevation */
-  
-}
-
-.main-content h2 
-{
-  font-size: 1.8em; /* larger heading size */
-  margin-bottom: 10px; /* space below heading */
-  color: #2d2d55; /* dark blue for headings */
-}
-
-.main-content p, .main-content li 
-{
-  font-size: 1.05em; /* slightly larger text for readability */
-  line-height: 1.7; /* increased line spacing for clarity */
-  color: #070404; /* dark gray text */
-}
-
-
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #1abc9c;
-  --accent-color: #16a085;
-  --background-light: #f9f9f9;
-  --background-box: #ffffff;
-  --border-color: #e0e0e0;
-  --text-color: #333333;
-  --highlight-color: #eefaf7;
-  --example-bg: #f0f7f4;
-  --hover-shadow: rgba(0, 0, 0, 0.08);
-}
-
-#overview {
-  width: auto;
-  margin: 1%;
-  padding: 1.5%;
-  background-color: var(--background-light);
-  border-radius: 10px;
-  font-family: 'Georgia', serif;
-  color: var(--text-color);
-  line-height: 1.8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-#overview h2 {
-  text-align: center;
-  font-size: 2.3rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  border-bottom: 3px solid var(--secondary-color);
-  padding-bottom: 0.5rem;
-}
-
-#overview h3 {
-  font-size: 1.7rem;
-  margin-top: 2.5rem;
-  color: var(--primary-color);
-  border-left: 5px solid var(--secondary-color);
-  padding-left: 0.75rem;
-  background-color: var(--highlight-color);
-  border-radius: 4px;
-}
-
-#overview h4 {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
-  color: var(--accent-color);
-}
-
-#overview p {
-  margin: 1rem 0;
-  font-size: 1.08rem;
-}
-
-#overview ul {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
-  list-style-type: disc;
-}
-
-#overview ul li 
-{
-  margin-bottom: 0%;
-}
-
-.overview-intro 
-{
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1;
-  align-items: left;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  background-color: var(--background-box);
-  border: 1px solid var(--border-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-.overview-intro img
-{
-  width: 50%;
-  height: 400px;
-  border-radius: 8px;
-  margin-bottom: 0%;
-  
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.intro-text 
-{
-  flex: 1;
-  margin-bottom: 0%;
-  margin-top: 0%;
-}
-.lastparaz
-{
-  display: block;
-  text-align: left;
-  margin-top: 0%;
-}
-
-.section-block 
-{
-  margin-top: 2%;
-  padding: 1%;
-  background-color: var(--background-box);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-  transition: box-shadow 0.3s;
-}
-
-.section-block:hover 
-{
-  box-shadow: 0 4px 12px var(--hover-shadow);
-}
-
-.citation-system 
-{
-  margin-top: 1.5rem;
-  padding: 1rem 1.25rem;
-  background-color: var(--highlight-color);
-  border-left: 5px solid var(--accent-color);
-  border-radius: 6px;
-}
-
-.example {
-  display: inline-block;
-  background-color: var(--example-bg);
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 0.96rem;
-  margin: 0.5rem 0;
-}
-
-.discipline-list {
-  list-style-type: square;
-}
-
-.closing-note {
-  margin-top: 2.5rem;
-  padding: 1.5rem;
-  background-color: var(--highlight-color);
-  border-left: 5px solid var(--secondary-color);
-  border-radius: 8px;
-  text-align: center;
-  font-style: italic;
-  font-size: 1.1rem;
-}
-
-/* Responsive Tweaks */
-@media (max-width: 768px) {
-  .overview-intro {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .overview-intro img.float-img-right {
-    max-width: 100%;
-  }
-
-  .intro-text {
-    flex: 1 1 100%;
-  }
-
-  #overview {
-    padding: 1.5rem;
-  }
-
-  .section-block {
-    padding: 1rem;
-  }
-}
-
-
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --accent-color: #2980b9;
-  --background-light: #f9f9f9;
-  --background-box: #ffffff;
-  --border-color: #e0e0e0;
-  --text-color: #333333;
-  --highlight-color: #eefaf7;
-  --hover-shadow: rgba(0, 0, 0, 0.08);
-}
-
-#apa-style-guide {
-  width: 100%;
-  max-width: 1200px;
-  margin: 1rem auto;
-  padding: 2rem;
-  background-color: var(--background-box);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: "Georgia", serif;
-  color: var(--text-color);
-  line-height: 1.7;
-  background-color: var(--background-light);
-}
-
-#apa-style-guide h2 {
-  text-align: center;
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--secondary-color);
-  padding-bottom: 0.5rem;
-}
-
-#apa-style-guide h3 {
-  color: var(--accent-color);
-  margin-top: 2rem;
-  font-size: 1.5rem;
-  border-left: 5px solid var(--secondary-color);
-  padding-left: 0.75rem;
-  background-color: var(--highlight-color);
-  border-radius: 4px;
-}
-
-#apa-style-guide h4 {
-  color: #34495e;
-  margin-top: 1rem;
-  font-size: 1.25rem;
-}
-
-#apa-style-guide p {
-  margin: 1rem 0;
-  font-size: 1.05rem;
-}
-
-#apa-style-guide ul {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
-}
-
-#apa-style-guide li {
-  margin-bottom: 0.5rem;
-}
-
-.apa-intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  background-color: var(--background-box, #fff);
-  border: 1px solid var(--border-color, #ccc);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px var(--hover-shadow, rgba(0,0,0,0.08));
-}
-
-.apa-intro img {
-  flex: 1 1 49%;
-  max-width: 50%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px var(--hover-shadow, rgba(0,0,0,0.08));
-}
-
-.apa-intro p {
-  flex: 1 1 48%;
-  max-width: 50%;
-  margin: 0;
-  font-size: 1.08rem;
-  line-height: 1.8;
-  color: var(--text-color, #333);
-}
-
-
-/* Responsive for mobile screens */
-@media (max-width: 768px) {
-  .apa-intro {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .apa-intro img,
-  .apa-intro p {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .apa-intro p {
-    text-align: left;
-    padding: 0 1rem;
-  }
-}
-
-#apa-style-guide .example-box {
-  background-color: #ecf5fb;
-  border-left: 4px solid var(--secondary-color);
-  padding: 1rem;
-  margin: 1rem 0;
-  font-family: "Courier New", monospace;
-  color: var(--primary-color);
-  border-radius: 6px;
-}
-
-#apa-style-guide code {
-  background-color: #f4f4f4;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: "Courier New", monospace;
-}
-
-#apa-style-guide table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-#apa-style-guide table th,
-#apa-style-guide table td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: left;
-}
-
-#apa-style-guide table th {
-  background-color: #f0f6fb;
-  color: var(--primary-color);
-}
-
-#apa-style-guide .apa-section {
-  margin-top: 2rem;
-  background-color: var(--background-box);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-#apa-style-guide .apa-subsection {
-  margin-top: 1rem;
-}
-
-#apa-style-guide .apa-conclusion {
-  background-color: var(--highlight-color);
-  padding: 1.5rem;
-  border-left: 5px solid var(--secondary-color);
-  margin-top: 2rem;
-  border-radius: 8px;
-  text-align: center;
-  font-style: italic;
-  font-size: 1.1rem;
-}
-
-
-
-
-.mla-style-guide 
-{
-  width: auto;
-  margin: 1%;
-  padding: 1.5%;
-  font-family: 'Georgia', serif;
-  background-color: #fefefe;
-  color: #333;
-  line-height: 1.7;
-}
-
-.mla-banner {
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.mla-banner img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  opacity: 0.85;
-}
-
-.mla-banner-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem 2rem;
-  border-radius: 8px;
-}
-
-.mla-banner-text h2 
-{
-  margin: 0;
-  font-size: 2rem;
-  color: white;
-}
-
-
-
-.mla-content 
-{
-  width: auto;
-  margin: 0%;
-  padding: 1.5%;
-}
-
-.mla-section 
-{
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-left: 4px solid #3f51b5;
-  border-radius: 4px;
-}
-
-.mla-section h3 {
-  margin-top: 0;
-  color: #3f51b5;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.3rem;
-}
-
-.mla-section p,
-.mla-section ul,
-.mla-section ol {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.mla-section ul,
-.mla-section ol {
-  padding-left: 1.5rem;
-}
-
-.mla-section li {
-  margin-bottom: 0.5rem;
-}
-
-.mla-example {
-  background-color: #e8eaf6;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-}
-
-.mla-example h4 {
-  margin-top: 0;
-  color: #303f9f;
-}
-
-.mla-example pre {
-  background-color: #f5f5f5;
-  padding: 0.5rem;
-  overflow-x: auto;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-
-
-
-.chicago-style {
-  width: auto;
-  margin: 1%;
-  padding: 1.5%;
-  background-color: #fdfdfd;
-  font-family: Georgia, serif;
-  color: #222;
-  line-height: 1.7;
-}
-
-.chicago-container 
-{
-  width: auto;
-  margin: 0%;
-  padding: 1%;
-}
-.chicago-style h2
-{
-  text-align: center;
-}
-
-.chicago-style h2, .chicago-style h3, .chicago-style h4 {
-  color: #003366;
-  margin-top: 0%;
-}
-
-.chicago-style p {
-  margin-bottom: 1%;
-}
-
-.chicago-style ul {
-  margin-bottom: 0%;
-  padding-left: 1.5rem;
-}
-
-.chicago-style li {
-  margin-bottom: 0.5rem;
-}
-
-.chicago-image {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.chicago-image img {
-  max-width: 100%;
-  height: 370%;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.chicago-image figcaption {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-.citation-system {
-  background-color: #f7f9fc;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 0%;
-  border-left: 4px solid #003366;
-}
-
-.citation-system h3 {
-  color: #002244;
-  margin-bottom: 1rem;
-}
-
-.citation-system section {
-  margin-bottom: 0%;
-}
-
-.reference-examples {
-  background-color: #eef3f7;
-  padding: 0.75rem;
-  border-radius: 4px;
-  font-family: "Courier New", monospace;
-}
-
-blockquote {
-  background-color: #f9f9f9;
-  border-left: 4px solid #ccc;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-}
-
-.comparison-table {
-  overflow-x: auto;
-  margin-bottom: 2rem;
-}
-
-.comparison-table table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #f7f7f7;
-}
-
-.comparison-table th, .comparison-table td {
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.comparison-table th {
-  background-color: #e0e7ef;
-  color: #002244;
-}
-
-.resources a {
-  color: #003366;
-  text-decoration: underline;
-}
-
-.resources a:hover {
-  color: #0055aa;
-}
-
-.conclusion {
-  background-color: #f1f5f9;
-  padding: 1rem;
-  border-radius: 6px;
-  border-left: 4px solid #003366;
-  margin-top: 2rem;
-}
-
-
-
-/* FOOTER SECTION */
-.footer {
-  background: #2d2d55;
-  color: white;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9em;
-}
-
-/* RESPONSIVE STYLES */
-@media (max-width: 768px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  .main-wrapper {
-    margin-left: 0;
-  }
-
-  .hero {
-    height: auto;
-    padding: 20px 10px;
-  }
-
-  .hero-overlay {
-    padding: 20px;
-  }
-}
+<!-- Sections -->
+    <section id="overview">
+        <h2>Overview of Citation Styles</h2>
+
+        <div class="overview-intro">
+            <img src="https://pp-blog.paperpal.com/wp-content/uploads/2024/10/pexels-vlada-karpovich-4050304-1.jpg?_gl=1*j7h75e*_ga*MTk0Mzg0OTU0NC4xNzUxODIzODI2*_ga_ZQ1C0W9WQ7*czE3NTE4MjM4MjYkbzEkZzAkdDE3NTE4MjM4MjgkajU4JGwwJGgw*_gcl_au*MTcxMDczMDI1MC4xNzUxODIzODE3*_ga_FX8NVDLJ9Z*czE3NTE4MjM4MjYkbzEkZzAkdDE3NTE4MjM4MjYkajYwJGwwJGgw" alt="Overview Illustration" class="float-img-right" />
+            <div class="intro-text">
+            <p>
+                Citing sources is a foundational aspect of academic and professional writing. It credits original authors, strengthens your work's credibility, and allows readers to verify your sources. Proper citation upholds academic integrity by discouraging plagiarism and fostering scholarly dialogue.
+            </p>
+            <p>
+                Different disciplines prefer different citation systems, each with its own structure and rationale. The three primary systems are:
+            </p>
+            <ul>
+                <li>Parenthetical (author–date)</li>
+                <li>Numeric</li>
+                <li>Note–Bibliography</li>
+            </ul>
+            
+            </div>
+            <p class="lastparaz">
+                Understanding these systems and their applications is essential for producing writing that is not only clear and credible but also meets the standards expected in academic, professional, and formal contexts. Mastery of citation styles, formatting guidelines, and structural conventions allows writers to effectively communicate their ideas while giving proper credit to sources, avoiding plagiarism, and enhancing the overall trustworthiness of their work. Furthermore, applying these systems correctly demonstrates attention to detail and a respect for scholarly and professional norms, which strengthens the writer’s authority and improves the reception of their work by readers, editors, or evaluators.
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h3>The Purpose of Citing Sources</h3>
+            <p>Citation serves multiple purposes in academic writing:</p>
+            <ul>
+            <li><strong>Acknowledge intellectual property:</strong> Credit others for their ideas, theories, research, or words.</li>
+            <li><strong>Avoid plagiarism:</strong> Ensure you don't use others' work without attribution.</li>
+            <li><strong>Build credibility:</strong> Show your arguments are informed and grounded in research.</li>
+            <li><strong>Enable source tracing:</strong> Allow readers to verify claims or explore related ideas.</li>
+            </ul>
+            <p>Most institutions and journals have strict formatting standards to uphold these principles.</p>
+        </div>
+
+        <div class="section-block">
+            <h3>The Three Major Citation Systems</h3>
+
+            <div class="citation-system">
+            <h4>a. Parenthetical (Author–Date) System</h4>
+            <p>
+                Includes the author's last name and year in parentheses within the text. A reference list in alphabetical order appears at the end.
+            </p>
+            <div class="example">Example: <code>(Smith, 2020)</code></div>
+            <p><strong>Fields:</strong> Social sciences (psychology, sociology, education, anthropology).</p>
+            <p><strong>Popular Styles:</strong> APA, Harvard</p>
+            <p>
+                APA emphasizes the date of publication, reflecting the importance of recent research. It includes specific formatting for books, articles, websites, and conference papers.
+            </p>
+            </div>
+
+            <div class="citation-system">
+            <h4>b. Numeric System</h4>
+            <p>
+                Sources are cited with numbers in order of appearance, corresponding to footnotes, endnotes, or a numbered reference list.
+            </p>
+            <div class="example">Example: Research shows a correlation between the variables <code>[1]</code>.</div>
+            <p><strong>Fields:</strong> Engineering, computing, mathematics, physical sciences.</p>
+            <p><strong>Popular Styles:</strong> IEEE, Vancouver</p>
+            <p>
+                Numeric styles keep text clean and efficient for technical/scientific reading.
+            </p>
+            </div>
+
+            <div class="citation-system">
+            <h4>c. Note–Bibliography System</h4>
+            <p>
+                Uses superscript numbers linked to footnotes or endnotes with full citations. A separate bibliography lists all sources.
+            </p>
+            <div class="example">Example: According to one historian, this was a pivotal event in 19th-century Europe.<sup>1</sup></div>
+            <p><strong>Fields:</strong> Humanities (literature, history, art history, theology, philosophy).</p>
+            <p><strong>Popular Styles:</strong> Chicago Notes and Bibliography, MHRA</p>
+            <p>
+                Note-based systems allow detailed commentary in footnotes, making them ideal for fields that require rich context.
+            </p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h3>Common Citation Styles by Discipline</h3>
+            <p>Different academic fields adopt specific citation styles:</p>
+            <ul class="discipline-list">
+            <li><strong>Humanities:</strong> Chicago Notes and Bibliography, MHRA</li>
+            <li><strong>Social Sciences:</strong> APA, Harvard</li>
+            <li><strong>Sciences:</strong> APA, Vancouver, CSE</li>
+            <li><strong>Engineering and Computing:</strong> IEEE, ACM</li>
+            <li><strong>Business and Law:</strong> APA, Chicago Author-Date, Bluebook</li>
+            </ul>
+            <p>Using the correct style ensures your work aligns with disciplinary expectations and is taken seriously.</p>
+        </div>
+
+        <div class="section-block">
+            <h3>Key Components of a Citation</h3>
+            <p>All citation styles share core elements:</p>
+            <ul>
+            <li><strong>Author(s):</strong> The creator(s) of the work.</li>
+            <li><strong>Title:</strong> The name of the book, article, or source.</li>
+            <li><strong>Publication Date:</strong> When it was published.</li>
+            <li><strong>Publisher or Source:</strong> The journal or organization where it appeared.</li>
+            <li><strong>Location Information:</strong> Page numbers, volume/issue, DOI, etc.</li>
+            </ul>
+            <p>Attention to detail in formatting is crucial for professional academic writing.</p>
+        </div>
+
+        <div class="section-block">
+            <h3>In-Text Citations vs. Bibliographies</h3>
+            <p>Citation styles differ in how and where citations appear:</p>
+            <ul>
+            <li><strong>In-Text Citations:</strong> Inline references showing source support directly in the text.</li>
+            <li><strong>Footnotes/Endnotes:</strong> Used in note–bibliography systems to offer extra detail or commentary.</li>
+            <li><strong>Reference List/Bibliography:</strong> Located at the end of the document, listing all sources cited or consulted.</li>
+            </ul>
+            <p>Always consult the official guide for rules on multiple authors, anonymous works, or translations.</p>
+        </div>
+
+        <div class="section-block">
+            <h3>Choosing the Right Citation Style</h3>
+            <p>Consider the following when selecting a citation style:</p>
+            <ul>
+            <li><strong>Disciplinary Norms:</strong> What’s standard in your field?</li>
+            <li><strong>Instructor or Journal Requirements:</strong> Often specified in assignments or submission guidelines.</li>
+            <li><strong>Purpose and Audience:</strong> Choose a style that meets expectations of your audience and genre.</li>
+            </ul>
+            <p>Students should follow assignment briefs, while researchers should check journal or conference guidelines.</p>
+        </div>
+
+        <div class="section-block">
+            <h3>Tools and Resources for Citation</h3>
+            <p>Tools can help you manage citations more easily:</p>
+            <ul>
+            <li><strong>Citation Management Software:</strong> Zotero, EndNote, Mendeley, RefWorks.</li>
+            <li><strong>Online Citation Generators:</strong> EasyBib, Cite This For Me, Scribbr.</li>
+            <li><strong>Official Style Guides:</strong> APA Manual, The Chicago Manual of Style, etc.</li>
+            </ul>
+            <p>These tools save time and reduce errors, especially in large research projects.</p>
+        </div>
+
+        <div class="closing-note">
+            <p>
+            <strong>Citation is more than a formatting requirement. It is a cornerstone of scholarly communication. Applying the right citation style demonstrates your credibility, respect for others’ work, and commitment to intellectual integrity. Aligning with disciplinary expectations ensures your writing meets the highest standards of clarity and professionalism.</strong>
+            </p>
+        </div>
+        </section>
+
+
+
+
+        <section id="apa-style-guide">
+          <h2>APA Style (7th Edition)</h2>
+          
+          <div class="apa-intro">
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQFp-NKcgJ0_yA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694626070424?e=2147483647&v=beta&t=WPF9k4ZHIsBzJAQYAll8tDpMAUAdw14GYytCnY5Sxe4" alt="APA Logo" class="apa-logo" />
+            <p>
+              The American Psychological Association (APA) 7th Edition is a popular writing style used mostly in subjects like psychology, education, nursing, and other social sciences. It helps writers organize their work clearly and professionally, making it easier for readers to understand the ideas and find the sources used. APA style shows you how to format your paper, cite sources in the text, and list references at the end. It also encourages respectful, inclusive language. By following APA guidelines, you give proper credit to other people’s work, avoid plagiarism, and make your writing look polished and trustworthy.
+            </p>
+          </div>
+
+          <div class="apa-section">
+            <h3>1. In-Text Citations: Author–Date Format</h3>
+            <p>
+              APA uses an author–date system for in-text citations, so readers can immediately identify sources and find them in the reference list.
+            </p>
+
+            <div class="apa-subsection">
+              <h4>Formats for In-Text Citations</h4>
+              <ul>
+                <li><strong>Parenthetical:</strong> Author and year in parentheses.</li>
+                <li><strong>Narrative:</strong> Author in the text with year in parentheses.</li>
+              </ul>
+              <div class="example-box">
+                <p><strong>Parenthetical:</strong> The study found significant results <code>(Smith, 2020)</code>.</p>
+                <p><strong>Narrative:</strong> Smith (2020) found significant results.</p>
+              </div>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Basic Rules</h4>
+              <ul>
+                <li>Include author’s last name and year of publication.</li>
+                <li>For direct quotes, add page number: <code>(Jones, 2019, p. 15)</code>.</li>
+                <li>Two authors: <code>(Brown & Lee, 2021)</code> or <em>Brown and Lee (2021)</em>.</li>
+                <li>Three or more authors: use <code>et al.</code> — <code>(Garcia et al., 2022)</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="apa-section">
+            <h3>2. Reference List: Detailed Source Information</h3>
+            <p>All sources cited must appear in a reference list, alphabetized by author surname and using a hanging indent.</p>
+
+            <div class="apa-subsection">
+              <h4>Book Reference Example</h4>
+              <div class="example-box">
+                <code>Author, A. A. (Year). Title of the book: Subtitle if any. Publisher.</code>
+                <p><strong>Example:</strong> Smith, J. A. (2020). <em>Understanding human behavior</em>. Psychology Press.</p>
+              </div>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Journal Article Example</h4>
+              <div class="example-box">
+                <code>Author, A. A., & Author, B. B. (Year). Title of the article. Title of the Journal, volume(issue), pages. https://doi.org/xxxxx</code>
+                <p><strong>Example:</strong> Johnson, L., & Walker, D. (2018). Emotional regulation in adolescents. <em>Journal of Adolescent Psychology</em>, 15(3), 234–250. https://doi.org/10.1016/j.jado.2018.01.002</p>
+              </div>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Webpage Example</h4>
+              <div class="example-box">
+                <code>Author, A. A. (Year, Month Day). Title of the page. Website Name. URL</code>
+                <p><strong>Example:</strong> Martin, S. (2023, January 5). Teaching mindfulness in schools. <em>Education Today</em>. https://www.educationtoday.org/mindfulness</p>
+              </div>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Key Formatting Rules</h4>
+              <ul>
+                <li>Italics for book and journal titles.</li>
+                <li>Sentence case for article/webpage titles.</li>
+                <li>Include DOI when available.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="apa-section">
+            <h3>3. Common APA Formatting Elements</h3>
+            <div class="apa-subsection">
+              <h4>Title Page (Student Papers)</h4>
+              <ul>
+                <li>Title of the paper</li>
+                <li>Author’s name</li>
+                <li>Institutional affiliation</li>
+                <li>Course name and number</li>
+                <li>Instructor’s name</li>
+                <li>Due date</li>
+              </ul>
+              <div class="example-box">
+                <p><strong>Example:</strong></p>
+                <p>
+                  The Impact of Social Media on Teen Mental Health<br>
+                  Alex M. Johnson<br>
+                  University of Nairobi<br>
+                  PSY 101: Introduction to Psychology<br>
+                  Dr. K. Mwangi<br>
+                  July 1, 2025
+                </p>
+              </div>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Running Head & Page Numbers</h4>
+              <p>APA 7th no longer requires a running head for student papers. Include page numbers in the top-right corner starting from the title page.</p>
+            </div>
+
+            <div class="apa-subsection">
+              <h4>Font and Spacing</h4>
+              <ul>
+                <li>Fonts: Times New Roman 12pt, Arial 11pt, Calibri 11pt, Georgia 11pt, Lucida Sans Unicode 10pt.</li>
+                <li>Double-space all text, including the reference list.</li>
+                <li>Use 1-inch margins on all sides.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="apa-section">
+            <h3>4. Tables and Figures</h3>
+            <p>Number and title all tables and figures clearly.</p>
+            <div class="example-box">
+              <p><strong>Example Table:</strong></p>
+              <p>Table 1<br>Student Performance by Age Group</p>
+              <table>
+                <tr>
+                  <th>Age Group</th>
+                  <th>Average Score</th>
+                </tr>
+                <tr>
+                  <td>10–12</td>
+                  <td>85.2</td>
+                </tr>
+                <tr>
+                  <td>13–15</td>
+                  <td>88.5</td>
+                </tr>
+              </table>
+              <p><em>Note. Scores are out of 100.</em></p>
+            </div>
+          </div>
+
+          <div class="apa-section">
+            <h3>5. Headings and Structure</h3>
+            <p>APA uses five levels of headings for clear organization:</p>
+            <ul>
+              <li><strong>Level 1:</strong> Centered, Bold, Title Case</li>
+              <li><strong>Level 2:</strong> Flush Left, Bold, Title Case</li>
+              <li><strong>Level 3:</strong> Flush Left, Bold Italic, Title Case</li>
+              <li><strong>Level 4:</strong> Indented, Bold, Title Case, Period. Text continues...</li>
+              <li><strong>Level 5:</strong> Indented, Bold Italic, Title Case, Period. Text continues...</li>
+            </ul>
+          </div>
+
+          <div class="apa-section">
+            <h3>6. Common Pitfalls and How to Avoid Them</h3>
+            <ul>
+              <li><strong>Incorrect use of "et al.":</strong> use it after the first author for 3+ authors even on first citation.</li>
+              <li><strong>Title Formatting Errors:</strong> italicize book/journal titles but not article titles.</li>
+              <li><strong>Missing DOIs or URLs:</strong> always include when available.</li>
+            </ul>
+          </div>
+
+          <div class="apa-section">
+            <h3>7. Using Citation Tools Effectively</h3>
+            <p>
+              To save time and stay organized, it is helpful to use reference managers like Zotero, Mendeley, or EndNote, which allow you to collect, store, and automatically cite your sources. You can also use citation generators such as Scribbr, MyBib, or Citation Machine to quickly create APA-style references. However, while these tools are convenient, they are not always perfect. It's important to double-check every citation to make sure it fully follows the APA 7th Edition guidelines. This includes checking punctuation, capitalization, italics, and author formatting to ensure accuracy and professionalism in your work.
+            </p>
+          </div>
+
+          <div class="apa-conclusion">
+            <p>
+              <strong>APA Style (7th Edition) is designed to help writers communicate their ideas in a way that is clear, organized, and trustworthy. It provides a set of rules for formatting documents, citing sources, and presenting information in a consistent manner. When you follow APA guidelines, your work looks more professional and is easier for readers to understand. More importantly, APA Style encourages academic honesty by making sure you give proper credit to the original authors of any ideas, data, or quotes you use. This not only helps you avoid plagiarism but also shows respect for other researchers' work and strengthens the credibility of your own writing.</strong>
+            </p>
+          </div>
+        </section>
+
+
+        <section id="mla" class="mla-style-guide">
+          <div class="mla-banner">
+            <img src="https://media.licdn.com/dms/image/v2/C4D12AQHHUixcGw2B-Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520139796031?e=2147483647&v=beta&t=nvnpuY9cmLLjAFQbh2ZzLP5DJP8Mie0AtunhEYnipaw" alt="MLA Banner">
+            <div class="mla-banner-text">
+              <h2>MLA Style (9th Edition)</h2>
+              
+            </div>
+          </div>
+
+          <div class="mla-content">
+            <section class="mla-section">
+              <h3>1. Purpose and Philosophy</h3>
+              <p>The core purpose of MLA style (Modern Language Association) is to offer a clear and consistent method for crediting sources in academic writing, especially in the humanities, such as literature, philosophy, and cultural studies. By following MLA guidelines, writers can properly acknowledge the ideas, quotes, and research of others, helping to avoid plagiarism and maintain academic honesty. MLA style also helps readers easily find the sources referenced, thanks to its simple in-text citation system and detailed Works Cited page. Overall, it supports organized, ethical, and reader-friendly writing. MLA encourages citation practices that are:</p>
+              <ul>
+                <li><strong>Reader-centered:</strong> Helping readers trace information back to its source.</li>
+                <li><strong>Authoritative:</strong> Respecting original creators’ intellectual property.</li>
+                <li><strong>Flexible:</strong> Accommodating new and evolving media formats.</li>
+              </ul>
+              <p>
+                Unlike APA style, which places importance on the date of publication to highlight how current the information is, MLA style focuses more on the context of the work itself. This means that instead of emphasizing when a source was published, MLA highlights the author and the title, which is more relevant in fields where the content and ideas matter more than the publication date. This approach makes MLA style especially useful for disciplines such as literature, history, and philosophy, where the interpretation and analysis of texts take priority over how recent the sources are.
+              </p>
+            </section>
+
+            <section class="mla-section">
+              <h3>2. In-Text Citations</h3>
+              <p>MLA style uses what is called the <em>author page citation</em> system, which means that in-text citations include the author’s last name and the page number where the information appears. This helps readers easily trace the source of any quote or reference by matching it to the full citation in the Works Cited list. Unlike other citation styles, MLA does not use commas or publication years in its in-text citations. For example, a citation might look like (Shakespeare 45). This method keeps the writing smooth and focused while still giving credit to original sources. Here is how the author page system works in practice:</p>
+              <div class="mla-example">
+                <p><strong>Format:</strong> (Author Page)</p>
+                <p><strong>Example:</strong> (Morrison 85)</p>
+              </div>
+              <ul>
+                <li>No comma between name and page number.</li>
+                <li>If author is named in the sentence, only use the page number in parentheses: <em>Morrison discusses... (85).</em></li>
+              </ul>
+            </section>
+
+            <section class="mla-section">
+              <h3>3. The Works Cited Page</h3>
+              <p>
+                The Works Cited page is an essential part of any paper written in MLA style. It appears at the end of the document and provides a complete list of all the sources that were directly cited in the text. Each entry includes important details such as the author's name, the title of the work, the publisher, and the publication date, allowing readers to locate the original source if they wish to explore it further. Unlike a bibliography, which can include background reading or sources not directly quoted, the Works Cited page only includes materials that were actually mentioned in the paper. This helps maintain transparency, supports academic honesty, and gives proper credit to original authors. Rules include:
+              </p>
+              <ul>
+                <li>Title the page “Works Cited” (centered, no bold/italics).</li>
+                <li>Double-space all entries.</li>
+                <li>Use hanging indentation.</li>
+                <li>Alphabetize by author's last name.</li>
+              </ul>
+            </section>
+
+            <section class="mla-section">
+              <h3>4. Core Elements of a Citation</h3>
+              <p>
+                To ensure that sources are cited clearly and completely, MLA style uses a container system that helps writers include all the important information about a source. A container is the larger whole that a source might be part of, such as a book, a scholarly journal, a website, or a streaming service. This system includes nine core elements, presented in a specific order and separated by standard punctuation. These elements provide a flexible and consistent structure that works for almost any type of source. MLA uses a <strong>container system</strong> with 9 core elements:
+              </p>
+              <ol>
+                <li>Author.</li>
+                <li>Title of source.</li>
+                <li>Title of container,</li>
+                <li>Other contributors,</li>
+                <li>Version,</li>
+                <li>Number,</li>
+                <li>Publisher,</li>
+                <li>Publication date,</li>
+                <li>Location.</li>
+              </ol>
+              <p>When creating a citation in MLA style, you should only include the elements that are relevant to your specific source. Not every source will have all nine core elements, and that is completely acceptable. For example, a web article may not have a version or issue number, while a YouTube video may not list a traditional publisher. The key is to use only the elements that apply and leave out those that do not, rather than forcing unnecessary information into the citation. This approach keeps your references accurate, concise, and easy to understand while still following MLA’s flexible structure.</p>
+            </section>
+
+            <section class="mla-section">
+              <h3>5. Example Citations</h3>
+              <div class="mla-example">
+                <h4>Book</h4>
+                <p>In-text: (Orwell 72)</p>
+                <p>Works Cited: Orwell, George. <em>1984.</em> Houghton Mifflin Harcourt, 2021.</p>
+              </div>
+              <div class="mla-example">
+                <h4>Journal Article</h4>
+                <p>In-text: (Jackson 115)</p>
+                <p>Works Cited: Jackson, Louise. “Female Identity in Modernist Poetry.” <em>Literary Review</em>, vol. 45, no. 3, 2022, pp. 110–120.</p>
+              </div>
+            </section>
+
+            <section class="mla-section">
+              <h3>6. Understanding Containers</h3>
+              <p>A container is the larger work that holds the source:</p>
+              <ul>
+                <li>Article in a journal</li>
+                <li>Chapter in a book</li>
+                <li>Video on a platform</li>
+                <li>Song in an album</li>
+              </ul>
+              <div class="mla-example">
+                <h4>TV Episode Example</h4>
+                <p>In-text: (“The One with the Embryos”)</p>
+                <p>Works Cited:</p>
+                <p>“The One with the Embryos.” <em>Friends</em>, season 4, episode 12, Warner Bros. Television, 1998. Netflix, www.netflix.com/watch/70153404.</p>
+              </div>
+            </section>
+
+            <section class="mla-section">
+              <h3>7. Common Source Examples</h3>
+              <div class="mla-example">
+                <h4>Website</h4>
+                <p>In-text: (McBride)</p>
+                <p>Works Cited: McBride, James. “The Power of Cultural Memory.” <em>The Atlantic</em>, 12 Mar. 2023, www.theatlantic.com/culture/article/2023/cultural-memory-identity.</p>
+              </div>
+              <div class="mla-example">
+                <h4>YouTube Video</h4>
+                <p>In-text: (“How Shakespeare Changed the English Language”)</p>
+                <p>Works Cited: “How Shakespeare Changed the English Language.” YouTube, uploaded by National Geographic, 5 May 2020, www.youtube.com/watch?v=Fh9ZfIwZ5VQ.</p>
+              </div>
+              <div class="mla-example">
+                <h4>Book Chapter</h4>
+                <p>In-text: (King 214)</p>
+                <p>Works Cited: King, Stephen. “Why We Crave Horror Movies.” <em>The Horror Reader</em>, edited by Ken Gelder, Routledge, 2000, pp. 212–219.</p>
+              </div>
+            </section>
+
+            <section class="mla-section">
+              <h3>8. Formatting Guidelines</h3>
+              <ul>
+                <li>Font: Times New Roman, 12 pt</li>
+                <li>Spacing: Double throughout</li>
+                <li>Margins: 1-inch on all sides</li>
+                <li>Header: Last name and page number in upper-right</li>
+                <li>Title: Centered, same font, no bold or italics</li>
+              </ul>
+              <div class="mla-example">
+                <h4>Header Example</h4>
+                <pre>
+        Brandy Gat 1
+
+        Brandy Gat
+        Professor Smith
+        English 101
+        1 July 2025
+
+        The Influence of Shakespeare on Modern Drama
+                </pre>
+              </div>
+            </section>
+
+            <section class="mla-section">
+              <h3>9. Common Citation Mistakes to Avoid</h3>
+              <ul>
+                <li>Misplacing quotation marks:
+                  <ul>
+                    <li><strong>Incorrect:</strong> “timeless”. (Brown 45)</li>
+                    <li><strong>Correct:</strong> “timeless” (Brown 45).</li>
+                  </ul>
+                </li>
+                <li><strong>Incorrect</strong> URL formatting. Remove “http://” or “https://”:</li>
+                <li><strong>Correct:</strong> www.poetryfoundation.org</li>
+                <li>Forgetting to italicize titles of books, films, journals.</li>
+                <li>Not identifying the right container.</li>
+              </ul>
+            </section>
+
+            <section class="mla-section">
+              <h3>10. Final Thoughts</h3>
+              <p>
+                <strong>
+                  <em>Mastering MLA Style goes beyond simply meeting formatting rules. It strengthens the clarity, consistency, and credibility of your academic writing. When you apply MLA guidelines correctly, your work becomes easier to read and more professional, helping your ideas come across clearly. But MLA is not just a technical requirement or a set of rules. It is a way of joining a larger academic conversation with respect, transparency, and responsibility. By giving credit to the sources you use, you recognize the contributions of other writers, show how your ideas build on existing knowledge, and allow readers to find and explore those sources for themselves. This practice reflects a commitment to honesty and shared learning, which is at the heart of all meaningful academic work.</em>
+                </strong>
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section class="chicago-style">
+          <div class="chicago-container">
+            <h2>Chicago Style Citation</h2>
+
+            <figure class="chicago-image">
+              <img src="https://cdn-abelk.nitrocdn.com/QuXiuZZczpPTFNXhRoWZCpgpgjRNrrzw/assets/images/optimized/rev-90e158c/clippings-me-blog.imgix.net/blog/wp-content/uploads/2020/01/7732bee1b22ab9e27826c642cc9ce465.andrew-neel-cckf4TsHAuw-unsplash-scaled.jpg" alt="Academic">
+              <figcaption>Academic research and writing essentials</figcaption>
+            </figure>
+
+            <div class="intro">
+              
+              <p>
+                The Chicago Manual of Style (17th edition) is a detailed and highly respected guide used in academic, publishing, and professional writing. What sets it apart is that it offers two separate citation systems, each designed to meet the needs of different academic disciplines. The first is the Notes and Bibliography system, which is commonly used in fields such as history, literature, and the arts. This system uses footnotes or endnotes along with a full bibliography, allowing writers to include detailed source information and background. The second is the Author Date system, often preferred in the sciences and social sciences, which uses brief in-text citations and a reference list at the end of the paper.
+
+                Learning and using these systems correctly helps ensure academic integrity, supports clear and responsible research practices, and allows your writing to meet the expectations of a professional scholarly audience. By following Chicago Style, writers show respect for original work and contribute to the larger academic conversation with accuracy and clarity.
+              </p>
+            </div>
+
+            <article class="citation-system">
+              <h3>a. Author–Date System</h3>
+              <section>
+                <h4>1. Introduction</h4>
+                <p>
+                  The Author–Date system is a widely used citation style, especially common in the sciences and social sciences. It is designed to provide readers with clear, concise in-text citations that identify the author and the year of publication, allowing them to locate the full reference in the bibliography or reference list. This system helps maintain the smooth flow of academic writing by avoiding lengthy footnotes or endnotes.
+
+                  Similar to APA and Harvard styles, the Author–Date system includes the author's last name and the publication year within parentheses directly in the text, but it can have distinct formatting conventions depending on the style guide being followed (for example, Chicago Author–Date style vs. APA). Typically, the in-text citation might look like (Smith 2020) or (Smith and Jones 2020) for two authors, with variations for multiple authors or repeated citations.
+
+                  The reference list at the end of the document provides complete details of each source, enabling readers to easily find and consult the original works. This system is valued for its clarity, ease of use, and reader-friendly approach, which supports academic integrity by transparently crediting sources without interrupting the narrative flow of research writing.
+                </p>
+              </section>
+
+              <section>
+                <h4>2. Purpose and Usage</h4>
+                <p>
+                  Favored in empirical, data-driven fields such as the sciences, social sciences, and economics, the Author–Date system is particularly well suited to writing that requires frequent citation of sources. By including brief in-text references—usually the author's last name and the year of publication—it allows researchers to acknowledge their sources clearly without cluttering the main text. This approach maintains academic rigor by ensuring that all data, theories, and prior findings are properly credited while avoiding the overuse of footnotes or endnotes that can disrupt the flow of reading.
+
+                  As a result, the Author–Date system promotes transparency and precision in scholarly work. It enables readers to trace evidence easily and evaluate the reliability of claims, which is essential in fields that rely on replicable studies, statistical analyses, and cumulative research. By streamlining the citation process, this system helps maintain a clear, organized presentation of complex, data-rich arguments while upholding high standards of academic integrity.
+                </p>
+              </section>
+
+              <section>
+                <h4>3. In-Text Citations</h4>
+                <ul>
+                  <li>General: (Smith 2020)</li>
+                  <li>With page number: (Smith 2020, 45)</li>
+                  <li>Two authors: (Smith and Jones 2020)</li>
+                  <li>Three or more: (Smith et al. 2020)</li>
+                </ul>
+              </section>
+
+              <section>
+                <h4>4. Reference List Format</h4>
+                <p>
+                  The Author–Date system includes full source details in a comprehensive list titled “References,” which appears at the end of the document. This list is carefully organized in alphabetical order by the authors’ last names, making it easy for readers to locate the complete citation for any in-text reference. Each entry typically provides all the necessary information about the source, such as the author(s), year of publication, title of the work, journal or publisher, volume and issue numbers (for articles), page ranges, and sometimes a DOI or URL for online sources.
+
+                  This detailed, alphabetized reference list ensures transparency and academic integrity by enabling readers to verify sources and further explore the materials cited. It also creates a standardized, professional appearance that supports clear scholarly communication, allowing other researchers to build on existing work with confidence.
+                </p>
+                <div class="reference-examples">
+                  <p><strong>Book Example:</strong><br>Smith, John. 2020. <em>Social Behavior Patterns</em>. Chicago: University of Chicago Press.</p>
+                  <p><strong>Journal Example:</strong><br>Lee, Amanda. 2019. “Urbanization and Climate Trends.” <em>Journal of Environmental Studies</em> 45 (3): 250–67.</p>
+                </div>
+              </section>
+
+              <section>
+                <h4>5. Advantages</h4>
+                <ul>
+                  <li>Ideal for frequent citations</li>
+                  <li>Maintains document flow</li>
+                  <li>Minimizes footnotes</li>
+                </ul>
+              </section>
+            </article>
+
+            <article class="citation-system">
+              <h3>b. Notes & Bibliography (NB) System</h3>
+              <section>
+                <h4>1. Purpose and Usage</h4>
+                <p>Preferred in humanities fields (history, literature, philosophy) for deep analysis and context-rich sourcing. Allows detailed commentary in notes.</p>
+              </section>
+
+              <section>
+                <h4>2. In-Text Citations with Notes</h4>
+                <p>Uses superscript numbers linking to footnotes or endnotes.</p>
+                <blockquote>
+                  The social changes of the 19th century were particularly visible in urban centers.<sup>1</sup>
+                </blockquote>
+              </section>
+
+              <section>
+                <h4>3. First Note vs. Shortened Note</h4>
+                <p><strong>First Note:</strong> John Smith, <em>Social Behavior Patterns</em> (Chicago: University of Chicago Press, 2020), 32.</p>
+                <p><strong>Shortened:</strong> Smith, <em>Social Behavior</em>, 32.</p>
+              </section>
+
+              <section>
+                <h4>4. Bibliography Format</h4>
+                <div class="reference-examples">
+                  <p><strong>Book:</strong> Smith, John. <em>Social Behavior Patterns</em>. Chicago: University of Chicago Press, 2020.</p>
+                  <p><strong>Journal:</strong> Lee, Amanda. “Urbanization and Climate Trends.” <em>Journal of Environmental Studies</em> 45, no. 3 (2019): 250–67.</p>
+                </div>
+              </section>
+
+              <section>
+                <h4>5. Citing Unusual Sources</h4>
+                <p>NB is flexible for archival materials and non-standard sources.</p>
+                <blockquote>
+                  Diary of Jane Addams, July 4, 1895, Jane Addams Papers, University of Chicago Archives.
+                </blockquote>
+              </section>
+
+              <section>
+                <h4>6. Advantages</h4>
+                <ul>
+                  <li>Rich, detailed sourcing</li>
+                  <li>Supports commentary</li>
+                  <li>Clean main text without parentheticals</li>
+                </ul>
+              </section>
+            </article>
+
+            <div class="comparison-table">
+              <h3>4. Comparing the Two Systems</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Author–Date</th>
+                    <th>Notes & Bibliography</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Field of Use</td>
+                    <td>Sciences, Social Sciences</td>
+                    <td>Humanities, Arts, History</td>
+                  </tr>
+                  <tr>
+                    <td>In-Text Citations</td>
+                    <td>(Author Year, Page)</td>
+                    <td>Superscript numbers</td>
+                  </tr>
+                  <tr>
+                    <td>Reference Format</td>
+                    <td>Reference List</td>
+                    <td>Footnotes/Endnotes + Bibliography</td>
+                  </tr>
+                  <tr>
+                    <td>Flexibility for Notes</td>
+                    <td>Minimal</td>
+                    <td>High (supports commentary)</td>
+                  </tr>
+                  <tr>
+                    <td>Citation Style</td>
+                    <td>Concise</td>
+                    <td>Detailed and contextual</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="common-mistakes">
+              <h3>5. Common Mistakes to Avoid</h3>
+              <ul>
+                <li>Incorrect punctuation and capitalization</li>
+                <li>Mixing Author–Date and NB in the same paper</li>
+                <li>Improper abbreviations in footnotes</li>
+                <li>Missing page numbers for specific quotations</li>
+              </ul>
+            </div>
+
+            <div class="resources">
+              <h3>6. Tools and Resources</h3>
+              <ul>
+                <li><a href="https://www.chicagomanualofstyle.org/">Chicago Manual of Style Online</a></li>
+                <li>Citation Managers: Zotero, Mendeley, BibGuru</li>
+                <li>University Library Guides</li>
+              </ul>
+            </div>
+
+            <div class="conclusion">
+              <h3> Conclusion</h3>
+              <p>
+                <strong>The Chicago style offers two well-developed systems of citation, each designed to meet the needs of specific academic disciplines. These systems are the Notes and Bibliography system and the Author Date system. The Notes and Bibliography approach is most often used in fields like history, literature, and the arts, where detailed source information and the ability to include commentary in footnotes is valuable. In contrast, the Author Date system is more commonly used in the sciences and social sciences, where concise in-text citations help maintain a smooth flow of information while still providing full source details in a reference list.
+
+                Choosing the correct system based on your field of study and applying its rules consistently is essential for maintaining credibility, academic honesty, and clarity in your writing. It allows readers to easily trace your sources, verify your research, and appreciate the depth of your scholarship. By following the appropriate Chicago style guidelines, writers demonstrate professionalism and contribute to a culture of responsible and ethical academic communication.</strong>
+
+
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+
+        <section id="harvard" class="harvard-section">
+  <div class="container">
+    <h2 class="section-title">5. Harvard Style</h2>
+
+    <div class="intro">
+      <p class="lead">
+        The Harvard referencing style is a widely-used and respected citation method, appreciated for its clarity, consistency, and straightforward structure. It follows the author–date format for in-text citations, where the author’s surname and the year of publication are placed in parentheses within the body of the text—e.g., (Taylor, 2021). This system allows writers to seamlessly integrate source information into their writing without interrupting the flow of ideas, while still giving appropriate credit to original authors.
+
+        At the end of the document, a complete and alphabetized reference list is provided, offering full bibliographic details of every source cited. This ensures that readers can easily trace the origin of the information, theories, or data mentioned throughout the work. Each reference typically includes the author’s name, year of publication, title of the work (italicized if a book), edition (if applicable), publisher, and place of publication. For journal articles, details such as journal title, volume, issue number, and page range are also included.
+
+        Harvard referencing is particularly popular in academic institutions across the UK, Australia, and other Commonwealth countries. It is commonly used in disciplines such as business, education, social sciences, and humanities, where the emphasis is on clearly linking arguments to the supporting literature. Its structured yet flexible format makes it suitable for a wide range of academic writing, promoting transparency and academic integrity across various fields of study.
+
+      </p>
+    </div>
+
+    <div class="why-use">
+      <h3>Why Use Harvard Style?</h3>
+      <ul class="benefits-list">
+        <li><strong>Acknowledges authorship:</strong> Credits original thinkers and researchers.</li>
+        <li><strong>Avoids plagiarism:</strong> Helps identify the origin of ideas.</li>
+        <li><strong>Provides evidence:</strong> Strengthens your arguments with valid sources.</li>
+        <li><strong>Guides readers:</strong> Assists others in finding your cited sources.</li>
+      </ul>
+    </div>
+
+    <div class="in-text">
+      <h3>In-Text Citations in Harvard Style</h3>
+      <div class="citation-rule">
+        <p><strong>Basic Format:</strong> <code>(Author, Year)</code></p>
+        <p class="example">Example: Climate change poses a serious threat to biodiversity <span class="cite">(Wilson, 2016).</span></p>
+      </div>
+      <div class="citation-rule">
+        <p><strong>Author Mentioned in Sentence:</strong> Only the year in parentheses.</p>
+        <p class="example">Example: <span class="cite">Wilson (2016)</span> argues that climate change threatens global biodiversity.</p>
+      </div>
+      <div class="citation-rule">
+        <p><strong>Multiple Authors:</strong></p>
+        <ul>
+          <li>Two authors: <code>(Smith and Jones, 2020)</code></li>
+          <li>Three or more authors: <code>(Brown et al., 2019)</code></li>
+        </ul>
+      </div>
+      <div class="citation-rule">
+        <p><strong>Multiple Works by the Same Author:</strong> <code>(Smith, 2018; 2020)</code></p>
+        <p><strong>Different Authors:</strong> <code>(Adams, 2017; Clarke, 2020)</code></p>
+      </div>
+      <div class="citation-rule">
+        <p><strong>Direct Quotes:</strong> Include page number.</p>
+        <p class="example">“Education is the most powerful weapon” <span class="cite">(Mandela, 1994, p. 45).</span></p>
+        <p><strong>Paraphrasing:</strong> Page numbers optional.</p>
+        <p class="example">Mandela (1994) suggests education is a transformative tool for society.</p>
+      </div>
+    </div>
+
+    <div class="reference-list">
+      <h3>Reference List Format</h3>
+      <p>The reference list, typically placed at the end of an academic paper or report, includes all sources that have been cited within the main text. It serves as a comprehensive record of the research materials used to support the writer's arguments, data, or insights. Each entry in the reference list corresponds directly to an in-text citation, ensuring that readers can easily locate the full bibliographic details of any source mentioned.
+
+        The list is organized alphabetically by the last names of the authors, which allows for quick and efficient navigation. If multiple works by the same author are cited, they are usually listed chronologically, from the earliest to the most recent publication. This alphabetical arrangement helps maintain order and consistency, making it easy for readers and reviewers to verify sources and further explore the referenced materials.
+
+        In citation styles like Harvard, APA, and Chicago Author–Date, the reference list plays a crucial role in maintaining academic transparency and integrity, as it gives full credit to original authors and facilitates the traceability of information. It is titled <strong>"References"</strong>.</p>
+      <div class="reference-types">
+        <div class="reference-item">
+          <h4>Book Example</h4>
+          <p><code>Smith, J. (2020). <em>Education and Society</em>. Cambridge University Press.</code></p>
+        </div>
+        <div class="reference-item">
+          <h4>Journal Article Example</h4>
+          <p><code>Taylor, M. (2019). ‘Digital learning in rural schools’, <em>Journal of Educational Technology</em>, 25(2), pp. 35–47.</code></p>
+        </div>
+        <div class="reference-item">
+          <h4>Website Example</h4>
+          <p><code>World Health Organization. (2023). <em>Mental health and COVID-19</em>. [Online] Available at: https://www.who.int/mental-health [Accessed 1 July 2025].</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="source-types">
+      <h3>Referencing Various Source Types</h3>
+      <ul>
+        <li><strong>Edited Book:</strong> Smith, J. and Brown, K. (eds.) (2022). <em>Social Policy in the 21st Century</em>. Routledge.</li>
+        <li><strong>Chapter in Edited Book:</strong> Jones, L. (2021). ‘Child development theories’, in Smith, J. and Brown, K. (eds.) <em>Social Policy in the 21st Century</em>. Routledge, pp. 112–130.</li>
+        <li><strong>Newspaper:</strong> Walker, C. (2022). ‘Tech companies face regulation’, <em>The Guardian</em>, 4 January, p. 7.</li>
+        <li><strong>Government Report:</strong> Department of Health. (2021). <em>Annual Report on Public Health</em>. London: DH Publications.</li>
+        <li><strong>Blog or Social Media:</strong> Thompson, R. (2023). ‘How AI is changing education’. <em>Medium</em>. [Online] Available at: https://medium.com/article [Accessed 15 June 2025].</li>
+      </ul>
+    </div>
+
+    <div class="institutional-variations">
+      <h3>Institutional Variations</h3>
+      <p>Harvard style may vary slightly depending on your institution. Differences may include:</p>
+      <ul>
+        <li>Italic or underlined titles</li>
+        <li>Round or square brackets</li>
+        <li>Different placement of publisher and location</li>
+      </ul>
+      <p><strong>Tip:</strong> Always follow your university’s specific referencing guide.</p>
+    </div>
+
+    <div class="common-errors">
+      <h3>Common Pitfalls to Avoid</h3>
+      <ul>
+        <li><strong>Inconsistency:</strong> Stick to one style format throughout.</li>
+        <li><strong>Missing Information:</strong> Gather all necessary details early.</li>
+        <li><strong>Incorrect Author Order:</strong> List names as in the original source.</li>
+        <li><strong>Improper Capitalization:</strong> Capitalize only the first word and proper nouns in titles.</li>
+      </ul>
+    </div>
+
+    <div class="tips-mastering">
+      <h3>Tips for Mastering Harvard Style</h3>
+      <ul>
+        <li>Use referencing software: e.g., Zotero, Mendeley, EndNote.</li>
+        <li>Bookmark your university’s Harvard guide.</li>
+        <li>Start your reference list early to avoid last-minute errors.</li>
+        <li>Proofread your references carefully for accuracy and formatting.</li>
+      </ul>
+    </div>
+
+    <div class="comparison">
+      <h3>Harvard vs. APA Style</h3>
+      <ul>
+        <li><strong>Punctuation:</strong> APA uses commas (e.g., Smith, 2020); some Harvard versions do not.</li>
+        <li><strong>Title Capitalization:</strong> APA capitalizes all major words; Harvard does not.</li>
+        <li><strong>Page Numbers:</strong> APA uses "p."; Harvard may use "pp." or just the numbers.</li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion</h3>
+      <p>
+        Harvard referencing is an essential tool for ethical and credible academic writing. By clearly acknowledging the sources of information, ideas, theories, and data, it helps prevent plagiarism and upholds the standards of academic integrity. Its structure enables writers to demonstrate the depth of their research, support their arguments with authoritative sources, and guide readers toward further exploration of the topic.
+
+        Although Harvard referencing is known for its flexibility and adaptability across various disciplines, mastering it requires more than just knowing the basic format. The key lies in applying it consistently and accurately throughout your work. This includes using the correct punctuation, ordering elements properly, and formatting references precisely according to the required guidelines.
+
+        Moreover, different universities, departments, or publishers may have slight variations or specific preferences within the Harvard style—for example, the use of italics, the inclusion of access dates for online sources, or how multiple authors are listed. Therefore, it's important to consult and follow the specific referencing guide provided by your institution to ensure your citations meet their standards.
+
+        By adhering to the core principles of clarity, consistency, and completeness, and by practicing with real examples, you can build confidence in using Harvard referencing correctly. Doing so not only strengthens your academic writing but also reflects your professionalism and respect for the intellectual work of others.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="ieee" class="ieee-section">
+  <div class="container">
+    <h2 class="section-title">6. IEEE Style</h2>
+
+    <div class="intro">
+      <div class="intro-content">
+        <p class="lead">
+          IEEE (Institute of Electrical and Electronics Engineers) Style is a numeric referencing format widely used in engineering, information technology, computer science, and various scientific and technical publications. It is designed to support clear, precise, and efficient academic communication in disciplines where conciseness and accuracy are highly valued.
+
+          In IEEE Style, sources are cited in the text using numbers enclosed in square brackets—for example, [1], [2], or [3]. These numbers correspond to a detailed, numbered reference list at the end of the document. Importantly, citations are numbered in the order in which they appear in the text. This means that the first source mentioned is [1], the second is [2], and so on, creating a straightforward and logical link between in-text citations and the reference list.
+
+          This system emphasizes brevity by avoiding lengthy author–date citations within the text, making it especially suitable for technical documents where clarity and readability are crucial. Readers can quickly locate the full reference details by matching the in-text numbers to the corresponding entries in the reference list. Each entry typically includes comprehensive bibliographic information such as authors’ names, article or book titles, journal or publisher details, volume and issue numbers, page ranges, and DOIs or URLs for online sources.
+
+          By maintaining strict numerical order and consistent formatting, IEEE Style ensures that technical writing remains organized, professional, and easy to navigate—qualities that are essential in fast-moving, detail-oriented fields.
+        </p>
+        <img src="https://learn.g2.com/hubfs/iStock-533343528.jpg" alt="IEEE Referencing Illustration" class="style-image">
+      </div>
+    </div>
+
+    <div class="why-use">
+      <h3>Why Use IEEE?</h3>
+      <ul class="benefits-list">
+        <li>Keeps writing concise and clear for technical documents.</li>
+        <li>Ideal for works with extensive citations.</li>
+        <li>Preferred by many engineering journals and conferences.</li>
+        <li>Enhances credibility in technical disciplines.</li>
+      </ul>
+    </div>
+
+    <div class="in-text">
+      <h3>In-Text Citations in IEEE Style</h3>
+      <p>IEEE uses bracketed numbers corresponding to the source's order of appearance.</p>
+      <div class="citation-rule">
+        <p class="example">Correct: Several researchers have addressed this issue <span class="cite">[1], [4], [6]</span>.</p>
+        <p class="example">Consecutive: The proposed solution is highly efficient <span class="cite">[3]–[7]</span>.</p>
+        <p class="example">Incorrect: According to [2], ...</p>
+        <p class="example">Correct: According to the study <span class="cite">[2]</span>, ...</p>
+      </div>
+    </div>
+
+    <div class="reference-list">
+      <h3>Reference List Format</h3>
+      <p>The reference list in IEEE Style appears in numerical order, reflecting the exact sequence in which sources are cited within the text, rather than being arranged alphabetically by author name. Each source is assigned a unique number the first time it is cited, and this number remains fixed throughout the document. For example, if a particular source is cited first in the text, it will be labeled [1] both in the in-text citation and in the reference list entry.
+
+        This system ensures a clear, direct link between in-text citations and the corresponding reference details, making it easy for readers to trace sources without confusion. It also helps maintain a streamlined, uncluttered appearance in technical and scientific writing, where clarity and efficiency are highly valued. By organizing the references based on their order of appearance, IEEE Style supports a logical flow of evidence and argumentation, guiding the reader through the progression of sources as they are introduced in the work.
+
+        Each numbered reference entry provides complete bibliographic information—such as author names, article or book titles, journal or publisher details, volume and issue numbers, page ranges, and DOIs or URLs—so that readers can easily locate and consult the original materials. This approach reinforces accuracy and professionalism in scholarly communication.
+      </p><br>
+      <div class="reference-item">
+        <h4>Book</h4>
+        <code>[1] J. Smith, <em>Engineering the Future</em>, 2nd ed., Oxford: Oxford University Press, 2020.</code>
+      </div>
+      <div class="reference-item">
+        <h4>Journal Article</h4>
+        <code>[2] A. Gupta and M. Kumar, “Neural networks for pattern recognition,” <em>IEEE Trans. Neural Netw.</em>, vol. 21, no. 5, pp. 123–131, Oct. 2019.</code>
+      </div>
+      <div class="reference-item">
+        <h4>Conference Paper</h4>
+        <code>[3] T. Jones and L. Lee, “AI in agriculture: Future outlook,” in <em>Proc. Int. Conf. on AgriTech</em>, Nairobi, Kenya, 2021, pp. 45–49.</code>
+      </div>
+      <div class="reference-item">
+        <h4>Website</h4>
+        <code>[4] IEEE Standards Association, “IEEE citation guidelines,” <em>IEEE.org</em>, 2020. [Online]. Available: https://www.ieee.org/documents/IEEEcitationguidelines.pdf [Accessed: Jun. 30, 2025]</code>
+      </div>
+    </div>
+
+    <div class="reference-components">
+      <h3>Key Reference Components</h3>
+      <ul>
+        <li><strong>Authors:</strong> Use initials followed by surname (e.g., J. Brown).</li>
+        <li><strong>Title:</strong> Italicized, with major words capitalized.</li>
+        <li><strong>Edition:</strong> Indicate non-first editions (e.g., 3rd ed.).</li>
+        <li><strong>Publication Details:</strong> City, publisher, and year required.</li>
+      </ul>
+    </div>
+
+    <div class="source-types">
+      <h3>Citing Common Source Types</h3>
+      <ul>
+        <li><strong>Books:</strong> [#] Author(s), <em>Title</em>, edition, City: Publisher, Year.</li>
+        <li><strong>Journals:</strong> [#] Author(s), “Title,” <em>Abbr. Journal</em>, vol., no., pp., date.</li>
+        <li><strong>Conference Papers:</strong> [#] Author(s), “Title,” in <em>Proc. Conf.</em>, location, year, pp.</li>
+        <li><strong>Websites:</strong> [#] Author, “Title,” Site, date. [Online]. URL [Accessed: date].</li>
+      </ul>
+    </div>
+
+    <div class="challenges">
+      <h3>Common Challenges and Tips</h3>
+      <ul>
+        <li>Maintain original citation numbers across your document.</li>
+        <li>Place citation brackets <strong>after</strong> punctuation.</li>
+        <li>Use IEEE abbreviations for journal titles (e.g., <em>IEEE Trans. Commun.</em>).</li>
+        <li>Double-check punctuation and spacing in your reference list.</li>
+      </ul>
+    </div>
+
+    <div class="tools">
+      <h3>Recommended Tools</h3>
+      <ul>
+        <li><strong>IEEE Author Center:</strong> Official guides and style files.</li>
+        <li><strong>Reference Managers:</strong> Zotero, EndNote, Mendeley.</li>
+        <li><strong>IEEE Generators:</strong> Tools like Scribbr and MyBib for formatting.</li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion</h3>
+      <p>
+        Mastering IEEE style is an important skill that enhances clarity, precision, and professionalism in technical writing. Widely used in fields such as engineering, computer science, and information technology, IEEE style is designed to present complex information in a clear and accessible way. By using numbered citations, it allows writers to refer to sources seamlessly within the text without interrupting the logical flow of ideas. Readers can easily match these in-text numbers to detailed entries in the reference list, which are arranged in the order the sources appear in the document.
+
+        IEEE style also emphasizes structured, standardized reference entries, which include all necessary bibliographic details—such as author names, article titles, journal or conference names, publication dates, volume and issue numbers, page ranges, and DOIs or URLs for online access. This consistency ensures that readers can quickly locate and verify the cited sources, supporting academic integrity and facilitating further research.
+
+        In addition, IEEE style frequently uses standard abbreviations for journal titles and technical terms, which helps keep references concise and professional while maintaining clarity for specialized audiences. To master IEEE style effectively, it is essential to apply consistent formatting throughout your work, paying close attention to details such as punctuation, capitalization, and abbreviation standards.
+
+        Writers are encouraged to consult official IEEE style guides and manuals to understand the specific rules and conventions required for different types of sources. Additionally, citation management tools and reference generators can help streamline the process of creating and organizing citations, reducing the risk of errors and saving valuable time. By adopting these best practices, you can ensure that your technical writing remains well-organized, precise, and highly professional—qualities that are essential in scientific and engineering disciplines.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="vancouver" class="vancouver-section">
+  <div class="container">
+    <h2 class="section-title"> Vancouver Style</h2>
+
+    <div class="intro">
+      <div class="intro-content">
+        <p class="lead">
+          Vancouver Style is a numeric referencing format widely used in medical, health, and scientific writing, valued for its clarity, precision, and consistency. Originally developed by the International Committee of Medical Journal Editors (ICMJE), it was created to establish a standardized approach to citation that promotes uniformity in scholarly publications across the biomedical and scientific communities.
+
+          In Vancouver Style, sources are cited in the text using sequential numbers, usually in superscript or in parentheses—for example,¹ or (1). These numbers correspond to entries in a numbered reference list at the end of the document, which is arranged in the exact order in which the sources appear in the text. This system allows readers to easily trace specific claims or data back to their original sources without disrupting the flow of the writing with lengthy citations.
+
+          The reference list itself provides complete bibliographic details for each cited source, typically including the author(s), article title, journal name (often abbreviated according to standardized medical abbreviations), year of publication, volume, issue, and page numbers. For books or reports, publisher information and edition details are included. This standardized format ensures that readers, reviewers, and researchers can quickly find and verify sources.
+
+          Vancouver Style is especially popular in medical journals, clinical research papers, and health sciences education because it prioritizes accuracy, brevity, and readability—key qualities in communicating complex scientific information. By adopting Vancouver Style, authors contribute to a consistent, professional scholarly tradition that facilitates clear, evidence-based discussion and advances in medical and scientific knowledge.
+        </p>
+        <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*yg328oExIuA5687o.jpg" alt="Vancouver Referencing Diagram" class="style-image">
+      </div>
+    </div>
+
+    <div class="overview">
+      <h3>Overview of Vancouver Style</h3>
+      <ul>
+        <li>Numeric citation system: references use numbers, not author-date.</li>
+        <li>Numbering corresponds to the order sources appear in-text.</li>
+        <li>Allows for parentheses (1), brackets [1], or superscript<sup>1</sup>.</li>
+        <li>Used extensively in clinical journals, medical theses, and health publications.</li>
+      </ul>
+    </div>
+
+    <div class="in-text">
+      <h3>In-Text Citation Formats</h3>
+      <p>Use numbers throughout the text to indicate citations. Choose a consistent format:</p>
+      <ul>
+        <li>Parentheses: (1)</li>
+        <li>Brackets: [1]</li>
+        <li>Superscript: <sup>1</sup></li>
+      </ul>
+      <div class="citation-rule">
+        <p class="example">"Heart disease remains the top global killer (1)."</p>
+        <p class="example">"According to Smith et al.<sup>2</sup>, early treatment reduces mortality."</p>
+      </div>
+    </div>
+
+    <div class="reference-list">
+      <h3>Reference List Format</h3>
+      <p>References are listed in the order they appear in the text, not alphabetically. The title "References" should appear at the top of a new page.</p>
+
+      <div class="reference-item">
+        <h4>Journal Article</h4>
+        <code>Smith J, Brown L. Heart disease statistics. Med J Int. 2020;22(3):45–50.</code>
+      </div>
+
+      <div class="reference-item">
+        <h4>Book</h4>
+        <code>Kumar P, Clark M. Clinical medicine. 9th ed. London: Elsevier; 2016.</code>
+      </div>
+
+      <div class="reference-item">
+        <h4>Book Chapter</h4>
+        <code>Williams G. Respiratory disorders. In: Brown R, editor. Pathology for nurses. 2nd ed. Edinburgh: Churchill Livingstone; 2015. p. 120–145.</code>
+      </div>
+
+      <div class="reference-item">
+        <h4>Website</h4>
+        <code>World Health Organization. Cardiovascular diseases [Internet]. Geneva: WHO; 2021 [cited 2025 Jun 30]. Available from: https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases</code>
+      </div>
+
+      <div class="reference-item">
+        <h4>Conference Paper</h4>
+        <code>Kim J, Patel R. Advances in telemedicine. In: Proceedings of the 2023 International Medical Informatics Symposium; 2023 May 14–16; Nairobi, Kenya. New York: MedTech Publishers; 2023. p. 75–80.</code>
+      </div>
+    </div>
+
+    <div class="rules">
+      <h3>Common Vancouver Style Rules</h3>
+      <ul>
+        <li><strong>Author names:</strong> Use initials without periods or spaces (e.g., Smith JH).</li>
+        <li><strong>Multiple authors:</strong> List up to six; use "et al." for more than six.</li>
+        <li><strong>Abbreviated Journals:</strong> Use PubMed’s official abbreviations (e.g., J Clin Oncol).</li>
+        <li><strong>Missing details:</strong> Use [date unknown] or begin with the title if author is unknown.</li>
+      </ul>
+    </div>
+
+    <div class="sample">
+      <h3>Sample Usage</h3>
+      <p>"Early intervention lowers diabetes risk by 60% (1). Johnson et al. also emphasize lifestyle changes (2)."</p>
+      <div class="sample-list">
+        <code>1. Brown L, Kim J. Preventive strategies for metabolic syndrome. J Nutr Health. 2020;15(4):200–205.</code><br>
+        <code>2. Johnson R, Blake H, Tran M. Lifestyle and diabetes: A clinical perspective. Med Res Rev. 2021;23(1):110–117.</code>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h3>Tips for Accuracy</h3>
+      <ul>
+        <li>Track sources as you write to prevent citation errors.</li>
+        <li>Use citation managers like EndNote, Zotero, or Mendeley.</li>
+        <li>Follow ICMJE and institutional guides for latest practices.</li>
+        <li>Review each citation’s format before submission.</li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion</h3>
+      <p>
+        Vancouver Style offers a compact, professional, and internationally recognized method of citation, making it especially well-suited for use in the health sciences, medicine, nursing, and other scientific disciplines. Its streamlined, numeric approach enables writers to incorporate frequent citations without cluttering the text, supporting clear and efficient communication of complex information—an essential requirement in clinical and research writing.
+
+        By using sequential numbers to refer to sources in the order they appear in the text, Vancouver Style maintains a logical, easy-to-follow structure that allows readers to quickly trace specific claims or data back to detailed references in the numbered list at the end of the document. This consistency promotes transparency and accountability, making it clear where information originated and ensuring that proper credit is given to original authors.
+
+        Mastering Vancouver Style is not just about following rules mechanically—it is a vital part of maintaining academic integrity and credibility. Consistently applying the correct format, paying attention to details like punctuation and journal title abbreviations, and ensuring that all cited sources are accurately reflected in the reference list help demonstrate your professionalism as a writer and researcher.
+
+        To achieve this, it’s important to practice regularly, consult reliable guides or institutional requirements, and use reputable citation tools when needed to streamline the process. By verifying your formats and citing ethically, you contribute to a culture of honest, rigorous scholarship that supports evidence-based practice and advances knowledge in the health sciences.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="numeric" class="numeric-section">
+  <div class="container">
+    <h2 class="section-title">Other Numeric Styles (AMA, ACS, CSE)</h2>
+
+    <div class="intro">
+      <p class="lead">
+        In scientific writing, numeric citation systems are essential for maintaining clarity, precision, and logical structure, particularly in fields where frequent referencing is necessary. These systems use numbered citations—appearing as superscripts or in parentheses within the text—that correspond to full references listed in numerical order at the end of the document. This approach keeps the main text clean and easy to follow while enabling readers to locate sources quickly. Among the most widely used styles are AMA, ACS, and CSE, each tailored to the needs of specific disciplines. AMA Style, favored in medicine and health sciences, uses superscript numbers to ensure concise, consistent, and transparent citation of clinical research. ACS Style, designed for chemistry, offers a clear numeric system with strict formatting rules that support reproducibility and precision in chemical literature. CSE Style, common in biology and life sciences, uses a similar numbered system to guide readers logically through sources as they appear in the text, with detailed guidance for diverse types of scientific materials. Mastering these numeric citation styles not only improves the professionalism and readability of scientific writing but also ensures that research meets the highest standards of academic integrity and scholarly communication.
+      </p>
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQFPZEBPljYnsA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1691079274862?e=2147483647&v=beta&t=xUJCfam0StPplkq5oqqdp7b6VqeGmV44MkYspSgsjuI" alt="Numeric Styles Comparison" class="style-image">
+    </div>
+
+    <div class="citation-style">
+      <h3>A. AMA Style (American Medical Association)</h3>
+      <ul>
+        <li>Used in: Medicine, Nursing, Public Health</li>
+        <li>In-text citations: Superscript numbers</li>
+        <li>Reference list: Numbered in order of appearance</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>In-text Citation</h4>
+        <code>Hypertension is a major risk factor for cardiovascular disease.¹</code>
+        <code>Several studies confirm this trend.²,⁴–⁶</code>
+      </div>
+
+      <div class="example-block">
+        <h4>Reference List Format</h4>
+        <code>1. Smith J, Brown K. Effects of dietary sodium on blood pressure. J Clin Nutr. 2020;55(2):150–158.</code>
+        <code>2. Anderson LA, Smith RL. Clinical Guidelines in Practice. 3rd ed. Health Press; 2019.</code>
+      </div>
+
+      <div class="note">
+        <p><strong>Key Rules:</strong> Up to six authors are listed; use "et al." after the third. No italics in journal names. Follow NLM abbreviations.</p>
+      </div>
+    </div>
+
+    <div class="citation-style">
+      <h3>B. ACS Style (American Chemical Society)</h3>
+      <ul>
+        <li>Used in: Chemistry and Chemical Engineering</li>
+        <li>Three citation systems: Superscript, Italic Parentheses, Author–Date</li>
+        <li>Consistency required across the document</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>In-text Examples</h4>
+        <code>The reaction yielded a 90% conversion rate.¹</code>
+        <code>The compound exhibited fluorescence (<em>2</em>).</code>
+        <code>Similar methods were reported by Miller and Lu (2015).</code>
+      </div>
+
+      <div class="example-block">
+        <h4>Reference List</h4>
+        <code>1. Zhang Y, Lin Z. Synthesis of photoluminescent materials. J Org Chem. 2018, 83, 3411–3419.</code>
+        <code>2. Atkins PW. Physical Chemistry, 10th ed.; Oxford University Press: Oxford, 2014.</code>
+      </div>
+
+      <div class="note">
+        <p><strong>Important:</strong> Use italics for volume numbers. Punctuation is strict. Journal names are abbreviated per ACS guidelines.</p>
+      </div>
+    </div>
+
+    <div class="citation-style">
+      <h3>C. CSE Style (Council of Science Editors)</h3>
+      <ul>
+        <li>Used in: Biology, Environmental Science, Life Sciences</li>
+        <li>Three systems: Name–Year, Citation–Sequence, Citation–Name</li>
+        <li>Numeric systems are Citation–Sequence and Citation–Name</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>1. Citation–Sequence</h4>
+        <code>Soil pH affects microbial diversity.¹</code>
+        <code>1. Li Z, Huang M. The role of pH in microbial growth. Soil Biol Biochem. 2020;45(3):221–229.</code>
+      </div>
+
+      <div class="example-block">
+        <h4>2. Citation–Name</h4>
+        <p>Reference list ordered alphabetically:</p>
+        <code>1. Carter L. ...</code>
+        <code>2. Davis K. ...</code>
+        <code>3. Wu H. ...</code>
+        <p>In-text example: Microbial activity in wetlands is higher during summer.²</p>
+      </div>
+
+      <div class="note">
+        <p><strong>Note:</strong> Use journal abbreviations and be consistent in format. Citation–Sequence is more widely used than Citation–Name.</p>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <h3>Style Comparison Table</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>AMA</th>
+            <th>ACS</th>
+            <th>CSE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary Field</td>
+            <td>Medicine, Health</td>
+            <td>Chemistry</td>
+            <td>Biology, Ecology</td>
+          </tr>
+          <tr>
+            <td>In-text Format</td>
+            <td>Superscript</td>
+            <td>Superscript / Italics / Author–Date</td>
+            <td>Superscript or (Number)</td>
+          </tr>
+          <tr>
+            <td>Reference Order</td>
+            <td>Appearance</td>
+            <td>Appearance or Alphabetical</td>
+            <td>Citation–Sequence or Citation–Name</td>
+          </tr>
+          <tr>
+            <td>Journal Abbreviations</td>
+            <td>Yes (NLM)</td>
+            <td>Yes (ACS)</td>
+            <td>Yes (Varies)</td>
+          </tr>
+          <tr>
+            <td>Author Listing</td>
+            <td>Up to 6, then et al.</td>
+            <td>All authors</td>
+            <td>All authors</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion and Best Practices</h3>
+      <ul>
+        <li>Follow official style guides and institutional preferences.</li>
+        <li>Remain consistent—do not mix citation styles.</li>
+        <li>Use reference managers (EndNote, Zotero, Mendeley).</li>
+        <li>Check for correct punctuation, author order, and abbreviations.</li>
+      </ul>
+      <p>
+        Proper citation is a fundamental aspect of scholarly writing that strengthens your credibility as a researcher and upholds the principles of academic integrity. By clearly acknowledging the sources of ideas, data, and prior research, you demonstrate respect for the intellectual contributions of others and allow readers to verify and build upon your work. Understanding citation styles such as AMA, ACS, and CSE is especially important for researchers aiming to publish within their specific disciplines. AMA Style, widely used in medicine and health sciences, ensures clarity and consistency in clinical research writing. ACS Style, tailored for chemistry, provides precise formatting for complex chemical data and sources, supporting reproducibility and clear communication. CSE Style, favored in biology and life sciences, offers detailed guidance for citing diverse scientific materials in a logical, numbered system. Mastering these discipline-specific styles empowers researchers to meet the rigorous standards of professional journals, communicate their findings effectively, and contribute responsibly to the ongoing advancement of knowledge in their fields.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="legal" class="legal-section">
+  <div class="container">
+    <h2 class="section-title">Legal Citation Styles (Bluebook, OSCOLA, MHRA)</h2>
+
+    <div class="intro">
+      <p class="lead">
+        Legal writing requires citation systems that accurately reflect precedent, authority, and jurisdictional nuances to maintain credibility and precision. Citations in legal texts are not merely formalities; they are essential tools for demonstrating the strength and relevance of legal arguments, linking claims to established law, and guiding readers to authoritative sources such as cases, statutes, or academic commentary. This section introduces three widely accepted legal citation styles, each with its own unique structure and formatting designed for specific contexts. The Bluebook, primarily used in the United States, offers a detailed and standardized approach for citing cases, statutes, administrative materials, secondary sources, and electronic resources, emphasizing clarity and uniformity across American legal scholarship and practice. OSCOLA, or the Oxford University Standard for the Citation of Legal Authorities, is widely used in the United Kingdom and other common law jurisdictions. It provides a clear, minimalist system tailored to legal academics and practitioners, prioritizing consistency while accommodating complex sources like legislation, case law, and international materials. MHRA, or the Modern Humanities Research Association Style, is used across humanities disciplines in the United Kingdom and is also important in legal and interdisciplinary scholarship for its footnote-based referencing, supporting detailed commentary and citation of historical legal sources. Mastering these citation styles is essential for legal writers who wish to communicate persuasively, respect jurisdictional conventions, and ensure their work meets the highest academic and professional standards.
+      </p>
+      <img src="https://cdn.prod.website-files.com/6593ab1e4ad7e8ac71652264/6593ab1e4ad7e8ac71652d1c_How-to-use-Bluebook-p-800.png" alt="Legal Citation Styles Overview" class="style-image">
+    </div>
+
+    <div class="citation-style">
+      <h3>1. Bluebook (U.S.)</h3>
+      <ul>
+        <li>Used in: U.S. legal practice, law schools, and courts</li>
+        <li>Citation type: Footnotes and in-text for legal memoranda</li>
+        <li>Highly structured with extensive abbreviation rules</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>Examples</h4>
+        <code>Brown v. Board of Education, 347 U.S. 483 (1954)</code>
+        <code>42 U.S.C. § 1983 (2018)</code>
+        <code>Cass R. Sunstein, On the Expressive Function of Law, 144 U. Pa. L. Rev. 2021 (1996)</code>
+      </div>
+
+      <div class="note">
+        <p><strong>Note:</strong> Use signals like <em>see</em>, <em>cf.</em>, and <em>e.g.</em> to show citation relevance. Follow The Bluebook rules strictly.</p>
+      </div>
+    </div>
+
+    <div class="citation-style">
+      <h3>2. OSCOLA (UK)</h3>
+      <ul>
+        <li>Used in: UK academic law writing, theses, EU law</li>
+        <li>Citation type: Footnotes only with full bibliography</li>
+        <li>Focuses on simplicity and minimal punctuation</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>Examples</h4>
+        <code>Donoghue v Stevenson [1932] AC 562 (HL)</code>
+        <code>Human Rights Act 1998</code>
+        <code>Paul Craig, ‘Theory and Values in Public Law’ (2005) 61 CLJ 95</code>
+      </div>
+
+      <div class="note">
+        <p><strong>Note:</strong> Avoid abbreviations and signals. Include separate bibliography sections for cases, legislation, and secondary sources.</p>
+      </div>
+    </div>
+
+    <div class="citation-style">
+      <h3>3. MHRA (UK Humanities)</h3>
+      <ul>
+        <li>Used in: Legal history, philosophy of law, interdisciplinary work</li>
+        <li>Citation type: Footnotes + Bibliography</li>
+        <li>Allows commentary in footnotes for academic discussion</li>
+      </ul>
+
+      <div class="example-block">
+        <h4>Examples</h4>
+        <code>H.L.A. Hart, The Concept of Law (Oxford: Oxford University Press, 2012), p. 23</code>
+        <code>Carol Harlow, ‘Public Law and Popular Justice’, Modern Law Review, 65 (2002), 1–18</code>
+        <code>R v Brown [1993] 2 All ER 75</code>
+      </div>
+
+      <div class="note">
+        <p><strong>Note:</strong> Best for interpretive and scholarly work. Not typically used in professional legal filings.</p>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <h3>Style Comparison Table</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Bluebook (U.S.)</th>
+            <th>OSCOLA (UK)</th>
+            <th>MHRA (UK Humanities)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary Use</td>
+            <td>U.S. courts, law schools</td>
+            <td>UK legal academia</td>
+            <td>Humanities, legal theory</td>
+          </tr>
+          <tr>
+            <td>Citation Type</td>
+            <td>Footnotes + In-text</td>
+            <td>Footnotes only</td>
+            <td>Footnotes + Bibliography</td>
+          </tr>
+          <tr>
+            <td>Abbreviation Use</td>
+            <td>Extensive (e.g., U.S., L. Rev.)</td>
+            <td>Minimal</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td>Case Format</td>
+            <td>Party v. Party, Vol. Reporter Page</td>
+            <td>Case Name [Year] Vol Reporter Page</td>
+            <td>Same as OSCOLA</td>
+          </tr>
+          <tr>
+            <td>Best For</td>
+            <td>U.S. practice & journals</td>
+            <td>Academic UK legal work</td>
+            <td>Essays, dissertations</td>
+          </tr>
+          <tr>
+            <td>Complexity</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Medium</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="conclusion">
+      <h3>Conclusion & Best Practices</h3>
+      <ul>
+        <li>Always refer to the most recent edition of the citation manual.</li>
+        <li>Use law-specific databases (Westlaw, BAILII, LexisNexis) for citation assistance.</li>
+        <li>OSCOLA and MHRA are supported in tools like Zotero and Mendeley.</li>
+        <li>Manually verify citations, especially in Bluebook, due to its complexity.</li>
+      </ul>
+      <p>
+        Mastering legal citation is essential for producing writing that meets both professional and academic standards. Accurate citation demonstrates a strong command of legal sources and reflects a deep understanding of the rules that govern legal communication. Whether you are preparing a court brief, writing a legal essay, or submitting work for publication, properly formatted citations lend credibility to your arguments and allow others to verify your references with ease. It is important to select the citation style that best suits your jurisdiction, institution, or publication context. For example, legal professionals in the United States often use the Bluebook, while scholars and practitioners in the United Kingdom may follow OSCOLA or MHRA, depending on whether the work is for legal or humanities research. Using the correct style enhances clarity, supports the logical flow of arguments, and ensures compliance with the expectations of your audience. Consistent and accurate citation not only strengthens the impact of your work but also reinforces the integrity and professionalism of your legal writing.
+
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="choosing" class="choosing-section">
+  <div class="container">
+    <h2 class="section-title">Choosing the Right Style + Best Practices</h2>
+
+    <div class="introduction">
+      <p class="lead">
+        Selecting the correct citation style is essential to achieving academic success and maintaining professional credibility. Using the appropriate style ensures that your work meets the expectations of your discipline, institution, or publication, and demonstrates respect for scholarly conventions. It is important to choose a citation style that aligns with your field of study or the requirements of your instructor or journal. For example, APA is common in the social sciences, MLA in the humanities, and IEEE in engineering and technology.
+
+        This section explains how to choose an appropriate style by understanding the norms of your subject area and reviewing any specific guidelines provided by your institution or publisher. It also highlights how to avoid common mistakes, such as inconsistent formatting, incomplete references, and incorrect author listings, which can undermine the quality and credibility of your work. In addition, you will learn best practices for managing citations effectively, such as keeping thorough notes on your sources and reviewing examples of properly formatted references.
+
+        To make the process easier and more accurate, this section also recommends using helpful tools like citation management software and online generators, which can save time and reduce errors. By mastering these strategies, you will be able to produce polished, professional writing that clearly credits your sources, supports your arguments, and meets the highest standards of academic integrity.
+      </p>
+    </div>
+
+    <div class="style-importance">
+      <h3>1. Why Citation Style Choice Matters</h3>
+      <ul>
+        <li>Ensures consistency and clarity in academic writing</li>
+        <li>Prevents plagiarism and enhances source credibility</li>
+        <li>Aligns with institutional or publication expectations</li>
+      </ul>
+      <div class="example-block">
+        <h4>Example</h4>
+        <code>APA: (Smith, 2022)</code>
+        <code>MLA: (Smith 2022)</code>
+      </div>
+    </div>
+
+    <div class="discipline-matching">
+      <h3>2. Citation Style by Discipline</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr><th>Discipline</th><th>Recommended Style</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Psychology, Sociology</td><td>APA</td><td>(Johnson, 2021)</td></tr>
+          <tr><td>Literature, Arts</td><td>MLA</td><td>(Johnson 2021)</td></tr>
+          <tr><td>History, Humanities</td><td>Chicago</td><td>Johnson, <em>Book</em>, (City: Publisher, 2021).</td></tr>
+          <tr><td>Engineering, CS</td><td>IEEE</td><td>[1] J. Johnson, <em>Title</em>, Publisher, 2021.</td></tr>
+          <tr><td>Law</td><td>Bluebook/OSCOLA</td><td>Legal case format</td></tr>
+          <tr><td>Medicine</td><td>Vancouver</td><td>[1] Johnson J. <em>Title</em>. City: Publisher; 2021.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="institutional-guide">
+      <h3>3. Institutional and Assignment Requirements</h3>
+      <ul>
+        <li>Check your department or instructor’s preferences</li>
+        <li>Follow university citation guides</li>
+        <li>Ask questions if unsure</li>
+      </ul>
+    </div>
+
+    <div class="source-types">
+      <h3>4. Influence of Source Type</h3>
+      <p>Each citation style treats digital and multimedia sources differently, reflecting the unique needs and conventions of different academic fields. While all styles aim to provide clear and complete information so readers can locate sources easily, the specific rules for citing websites, online articles, videos, podcasts, social media posts, and other digital materials can vary widely. For example, APA style often requires including a direct URL and an access date for online sources to ensure transparency about when the content was viewed. MLA style may emphasize the creator, platform, and date of publication, helping readers understand the context and authorship of the material. Chicago style offers options for both notes and bibliography or author and date systems, each with detailed guidance on handling online sources. In technical fields, IEEE and other numeric systems may require concise yet precise details for digital content, maintaining clarity without cluttering the text. Recognizing and following these differences is important for producing accurate, professional citations that respect the standards of your discipline and make your research easy to verify.</p>
+      <div class="example-block">
+        <h4>APA YouTube Example</h4>
+        <code>CrashCourse. (2017, March 2). <em>The Cold War</em> [Video]. YouTube. https://www.youtube.com/watch?v=wVqziNV7dGY</code>
+      </div>
+    </div>
+
+    <div class="mixing-warning">
+      <h3>5. Avoid Mixing Styles</h3>
+      <p>Consistency is critical when it comes to citation, as it ensures your writing remains clear, professional, and easy to follow. Sticking with one citation style throughout your entire document is essential unless your instructor, publisher, or institution specifically instructs you to use more than one. Using a single, consistent style helps readers quickly understand and navigate your references without unnecessary confusion or distraction. Mixed formats, on the other hand, can be distracting and make it difficult for readers to locate and verify your sources. This inconsistency can undermine your credibility as a careful and reliable writer, suggesting carelessness or a lack of understanding of academic conventions. Consistent citation demonstrates respect for scholarly standards, strengthens your arguments by clearly linking evidence to sources, and shows that you are attentive to detail. To achieve this, it is important to familiarize yourself with the guidelines of your chosen style, review your work carefully, and consider using citation management tools to help maintain uniform formatting throughout your paper. By prioritizing consistency, you ensure that your writing is professional, trustworthy, and academically sound.</p>
+    </div>
+
+    <div class="best-practices">
+      <h3>6. Citation Best Practices</h3>
+      <ul>
+        <li>Check punctuation, capitalization, and italics rules</li>
+        <li>Be consistent with format across all entries</li>
+        <li>Ensure all key citation elements are present (author, title, date, source)</li>
+        <li>Avoid placeholder citations in final drafts</li>
+      </ul>
+    </div>
+
+    <div class="tools-section">
+      <h3>7. Citation Tools</h3>
+      <div class="tool">
+        <strong>Zotero</strong> – Open-source tool for collecting, organizing, and citing sources. Best for research projects.
+      </div>
+      <div class="tool">
+        <strong>Mendeley</strong> – Suited for medical/scientific research with built-in PDF annotation.
+      </div>
+      <div class="tool">
+        <strong>Citation Machine</strong> – Quick, web-based citation generator for multiple styles.
+      </div>
+      <div class="tool">
+        <strong>Scribbr</strong> – Student-friendly generator with detailed guides and formatting support.
+      </div>
+    </div>
+
+    <div class="teaching-section">
+      <h3>8. Teaching Citation to Students</h3>
+      <ul>
+        <li>Assign multi-style formatting exercises</li>
+        <li>Encourage peer reviews for citation evaluation</li>
+        <li>Introduce citation software early in the course</li>
+        <li>Provide constructive, specific feedback</li>
+      </ul>
+    </div>
+
+    <div class="final-thoughts">
+      <h3>9. Final Thoughts</h3>
+      <p>
+        Understanding, choosing, and applying citation styles properly is an essential part of academic writing that significantly boosts your credibility as a scholar. Correct and consistent citation shows that you have carefully engaged with the existing literature, respected the intellectual work of others, and built your arguments on a solid foundation of evidence. It also helps you avoid plagiarism by clearly acknowledging where ideas, data, or words come from, which is a fundamental expectation in all scholarly and professional contexts. Proper citation improves academic communication by providing readers with the information they need to verify sources, explore topics further, and assess the strength of your research. To achieve this level of accuracy and consistency, it is helpful to use tools such as citation managers, style guides, and online generators. These resources can save time, reduce errors, and ensure that all of your citations follow the correct format. By investing in these best practices, you support the clarity, integrity, and quality of your work while meeting the highest academic standards.
+      </p>
+    </div>
+
+    <div class="citation-tools">
+      <h3>Here are some common helpful writing assisting tools</h3>
+      <ul>
+        <li>Scribbr</li>
+        <li>Citation Machine</li>
+        <li>EasyBib</li>
+        <li>BibMe</li>
+        <li>CiteThisForMe</li>
+        <li>MyBib</li>
+        <li>Zotero</li>
+        <li>Mendeley</li>
+        <li>RefWorks</li>
+
+        <!-- Related Writing / Paraphrasing / AI Tools -->
+        <li>Grammarly</li>
+        <li>QuillBot</li>
+        <li>Wordtune</li>
+        <li>Jasper AI</li>
+        <li>Writesonic</li>
+        <li>ChatGPT</li>
+        <li>Copy.ai</li>
+        <li>ProWritingAid</li>
+        <li>Scribendi</li>
+        <li>PaperTrue</li>
+
+        <!-- Essay Writing / Homework Help Sites -->
+        <li>Chegg</li>
+        <li>Course Hero</li>
+        <li>Studypool</li>
+        <li>EssayPro</li>
+        <li>EduBirdie</li>
+        <li>GradeMiners</li>
+        <li>99Papers</li>
+        <li>PaperHelp</li>
+
+        <!-- Plagiarism Checkers -->
+        <li>Scribbr Plagiarism Checker</li>
+        <li>Grammarly Premium (plagiarism)</li>
+        <li>Quetext</li>
+        <li>PlagScan</li>
+        <li>Unicheck</li>
+
+        <!-- Academic Research / PDF Managers -->
+        <li>EndNote</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 AcademicWritingWeb | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
