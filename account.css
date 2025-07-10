@@ -1,504 +1,133 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Reset and base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ececec;
-  margin: 0;
-  padding: 0;
-}
-
-/* Header */
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 87px;
-  background: white;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-#toggleSidebar {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.logo {
-  height: 60px;
-  object-fit: contain;
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 87px;
-  left: 0;
-  bottom: 0;
-  width: 220px;
-  background: #ffffff;
-  color: #000;
-  overflow-y: auto;
-  transition: width 0.3s ease;
-  z-index: 999;
-}
-
-.sidebar.collapsed {
-  width: 70px;
-}
-
-.sidebar .nav-links {
-  list-style: none;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.sidebar .nav-links li {
-  text-align: left;
-}
-
-.sidebar .nav-links a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-.sidebar .nav-links a:hover {
-  background-color: #8b8686;
-}
-
-.sidebar.collapsed .link-text {
-  display: none;
-}
-
-.sidebar.collapsed a {
-  justify-content: center;
-}
-
-/* Main Wrapper */
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* force full viewport height */
-  margin-left: 220px;
-  margin-top: 87px;
-  transition: margin-left 0.3s ease;
-}
-
-.sidebar.collapsed ~ .main-wrapper {
-  margin-left: 70px;
-}
-
-/* Main Content */
-.main-content {
-  flex: 1; /* fills available vertical space */
-  padding: 20px;
-  background: #f5f5f5;
-}
-
-/* ACCOUNT DASHBOARD STYLES */
+/* Full page container */
 .account-dashboard {
-  width: 100%;
-  margin: 0%;
-  padding: 3%;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  font-family: 'Segoe UI', sans-serif;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    background: #e0dede;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Section Headings */
+.account-dashboard h2, .account-dashboard h3 {
+    color: #2b2b2b;
+    margin-bottom: 15px;
+    font-size: 47px;
 }
 
 /* USER INFO */
 .user-info {
-  background-color: #faeccf;
-  padding: 24px 28px;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-left: 5px solid #3f3da3;
-  border-right: 5px solid #3f3da3;
-  text-align: center;
-  align-items: center;
+    border-left: 5px solid #4a90e2;
+    padding-left: 20px;
+    background-color: #c5ffdd;
 }
 
-/* Title */
-.user-info h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #2d2d55;
-  margin-bottom: 10px;
-}
-
-/* User detail rows */
 .user-info p {
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.5;
+    font-size: 27px;
+    margin: 8px 0;
+    color: #333;
 }
 
-.user-info p strong {
-  color: #2d2d55;
-  min-width: 80px;
-  display: inline-block;
+.user-info span {
+    color: #4a4a4a;
 }
 
-/* Settings Button */
-.user-info .btn-settings {
-  align-self: center;
-  margin-top: 10px;
-  background-color: #069268;
-  color: #fff;
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Buttons */
+.btn {
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+.btn-settings {
+    background-color: #4a90e2;
+    color: #fff;
+    margin-top: 15px;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 
-.user-info .btn-settings:hover {
-  background-color: #2e2c8d;
 }
 
-
-
-
-
-/* Settings Form */
-.settings-form {
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.btn-settings:hover {
+    background-color: #357ABD;
 }
 
-.settings-form label {
-  font-size: 0.95rem;
-  color: #444;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.settings-form input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-.btn-save {
-  background-color: #00a86b;
-  color: #fff;
-  align-self: flex-start;
-}
-
-.btn-save:hover {
-  background-color: #00895a;
-}
-
-/* TEST HISTORY */
-
-.test-history {
-  background-color: #b6b2b2;
-  padding: 24px 28px;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.test-history h3 {
-  font-size: 1.6rem;
-  color: #2d2d55;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-
-/* Centered ordered list */
-.test-history ol {
-  list-style-position: inside;
-  padding-left: 0;
-  margin: 0 auto;
-  max-width: 500px;
-  color: #444;
-}
-
-.test-history li {
-  margin-bottom: 10px;
-  font-size: 1.05rem;
-  padding: 8px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.test-history li:last-child {
-  border-bottom: none;
-}
-
-
-/* BADGES SECTION */
-.user-badges {
-  background-color: #c5fda0;
-  padding: 24px 28px;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.user-badges h3 {
-  font-size: 1.6rem;
-  color: #2d2d55;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-
-/* Badge container */
-.user-badges .badges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  padding-top: 10px;
-}
-
-/* Individual badge */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  min-width: 120px;
-}
-
-/* Hover effect */
-.badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Badge colors */
-.badge-green {
-  background-color: #00a86b;
-}
-
-.badge-blue {
-  background-color: #4682b4;
-}
-
-.badge-purple {
-  background-color: #6a0dad;
-}
-/* DELETE ACCOUNT SECTION */
-.delete-account {
-  margin-top: 7px;
-  text-align: center;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #ffd6d6;
-  box-shadow: 0 3px 10px rgba(255, 0, 0, 0.08);
-}
-
-/* Delete Button */
 .btn-delete {
-  background-color: #ff4d4d;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.2);
+    background-color: #f78587;
+    color: #fff;
+    font-size: medium;
+    padding: 15px;
 }
 
 .btn-delete:hover {
-  background-color: #ff0000;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(204, 0, 0, 0.3);
+    background-color: #f5000c;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .account-dashboard {
-    padding: 20px;
-  }
-
-  .settings-form {
+/* BADGES */
+.user-badges .badges {
+    display: flex;
     gap: 10px;
-  }
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
-
-/* Footer */
-.footer {
-  background: #49496d;
-  color: white;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9em;
-  width: 100%;
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* Search Bar Container */
-.search-bar {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  border: 1.8px solid #ccc;
-  border-radius: 24px;
-  padding: 4px 8px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.badge-green {
+    background: #27ae60;
 }
 
-.search-bar:focus-within {
-  border-color: #494864;
-  box-shadow: 0 0 0 3px rgba(63, 61, 163, 0.1);
+.badge-blue {
+    background: #2980b9;
 }
 
-/* Input Field */
-.search-bar input {
-  flex: 1;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  color: #333;
-  background-color: transparent;
-  outline: none;
+.badge-purple {
+    background: #8e44ad;
 }
 
-/* Search Button */
-.search-bar button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  background: #969699;
-  border: none;
-  border-radius: 24px;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search-bar button:hover {
-  background: #1b18ad;
-}
-
-.search-bar button i {
-  font-size: 1.1rem;
-}
-
-
-.header-buttons {
-  display: flex;
-  gap: 30px;
-  border-radius: 24px;
-  height: 50%;
-  
-}
-.header-buttons a{
-
-  border-radius: 24px;
-  text-align: center;
-}
-
-.cta-btn.small {
-  padding: 6px 14px;
-  font-size: 0.9em;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: bolder;
-  border: 1px solid #eec780;
-  color: #000;
-  background: transparent;
-}
-
-.cta-btn.small.secondary {
-  border: 1px solid #80f1b3;
-}
-
-.cta-btn.small:hover {
-  background: #f8b840;
-}
-
-.cta-btn.small.secondary:hover {
-  background: #46ff99;
+/* DELETE ACCOUNT Section */
+.delete-account {
+    text-align: right;
+    margin-top: 20px;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .main-wrapper {
-    margin-left: 0;
-  }
+@media (max-width: 600px) {
+    .account-dashboard {
+        padding: 20px;
+    }
 
-  .sidebar {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: 87px;
-  }
+    .user-info,
+    .user-badges,
+    .delete-account {
+        text-align: left;
+    }
 
-  .sidebar.collapsed {
-    width: 100%;
-  }
-
-  .main-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-bar {
-    margin: 10px 0;
-    width: 100%;
-  }
-
-  .header-buttons {
-    width: 100%;
-    justify-content: flex-start;
-  }
+    .delete-account {
+        text-align: center;
+    }
 }
