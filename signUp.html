@@ -1,103 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Academic Writing Web App</title>
-  <link rel="stylesheet" href="signUp.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<section class="signup-section">
+  <div class="signup-container">
+    <form class="signup-form">
+      <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+      <p>Enter your information below to create an account</p>
 
-</head>
-<body>
-
- <!-- Sidebar -->
-<nav class="sidebar">
-  
-  <a href="homePage.html">
-    <img src="weblogo.png" alt="Academic hub" class="logo">
-  </a>
- 
-  <ul class="nav-links">
-    <li><a href="homePage.html"><i class="fas fa-home"></i><span>Home</span></a></li>
-    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span>Writing Styles</span></a></li>
-    <li><a href="writingTools.html"><i class="fas fa-tools"></i><span>Writing Tools</span></a></li>
-    <li><a href="writingTest.html"><i class="fas fa-clipboard-check"></i><span>Writing Tests</span></a></li>
-    <li><a href="FAQs.html"><i class="fas fa-question-circle"></i><span>FAQs</span></a></li>
-    <li><a href="#"><i class="fas fa-user"></i><span>Account</span></a></li>
-    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-  </ul>
-  <hr class="styled-line">
-  <ul class="nav-links">
-    <li><a href="Support.html"><i class="fas fa-headset"></i><span>Support</span></a></li>
-    <li><a href="HelperBot.html"><i class="fas fa-robot"></i><span>HelperBot</span></a></li>
-  </ul>
-</nav>
-
-  
-
-  <!-- Page Wrapper (main content + footer) -->
-  <div class="main-wrapper">
-    <header class="main-header">
-      <div class="header-content">
-        <h1> </h1>
-        <div class="search-bar">
-            <input type="text" placeholder="Search topics, guides, or tools...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        <div class="header-buttons">
-            <a href="signIn.html" class="cta-btn small">Sign in</a>
-            <a href="signUp.html" class="cta-btn small secondary">Sign Up</a>
-        </div>
+      <div class="name-group">
+        <input type="text" placeholder="First Name" required />
+        <input type="text" placeholder="Last Name" required />
       </div>
-    </header>
+      
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+      
+      
 
-    <!-- page Content -->
-    <main class="main-content">
-    
-    <!-- Sections -->
-    <section class="signup-section">
-    <div class="signup-container">
-        <form class="signup-form">
-        <h2>Sign Up</h2>
-        <p>Enter your information below to create an account</p>
+      <button type="submit" class="btn-primary">
+        <i class="fas fa-user-check"></i> Create an Account
+      </button>
 
-        <div class="name-group">
-            <input type="text" placeholder="Enter First Name" required />
-            <input type="text" placeholder="Enter Last Name" required />
-        </div>
+      <button type="button" class="btn-google">
+        <i class="fab fa-google"></i> Sign Up with Google
+      </button>
 
-        <input type="email" placeholder="Enter your Email" required />
-        <input type="password" placeholder="Enter your Password" required />
-        <button type="submit" class="btn-primary">Create an Account</button>
+      <p class="policy-text">
+        By signing up, you agree to our
+        <a href="terms.html">Terms and Conditions</a> and
+        <a href="privacyPolicy.html">Privacy Policy</a>
+      </p>
 
-        <button type="button" class="btn-google">
-            <img src="google-icon.png" alt="Google" /> Sign Up with Google
-        </button>
-
-        <p class="policy-text">
-            By signing up, you agree to our
-            <a href="terms.html">Terms and Conditions</a> and
-            <a href="privacyPolicy.html">Privacy Policy</a>
-        </p>
-
-        <p class="signin-link">
-            Already have an account? <a href="signIn.html">Sign In</a>
-        </p>
-        </form>
-    </div>
-    </section>
-
-    
-    </main>
-
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 AcademicWritingWeb | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
-
+      <p class="signin-link">
+        Already have an account? <a href="signIn.html">Sign In</a>
+      </p>
+    </form>
   </div>
-
-</body>
-</html>
+</section>
