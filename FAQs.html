@@ -3,64 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Academic Writing Web App</title>
+  <title>Online Academic Writing guides</title>
   <link rel="stylesheet" href="FAQs.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
- <!-- Sidebar -->
-<nav class="sidebar">
-  <h2 class="logo">AcademicBestWriter</h2>
-  <hr class="styled-line">
+
+<!-- Header -->
+<header class="main-header">
+  <div class="header-left">
+    <button id="toggleSidebar"><i class="fas fa-bars"></i></button>
+    <a href="homePage.html"><img src="weblogo1.png" alt="Academic hub" class="logo" /></a>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search any major online academic writing topics, styles, or tools...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
+  <div class="header-buttons">
+    <a href="signIn.html" class="cta-btn small">Sign in</a>
+    <a href="signUp.html" class="cta-btn small secondary">Sign Up</a>
+  </div>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar collapsed" id="sidebar">
   <ul class="nav-links">
-    <li><a href="homePage.html"><i class="fas fa-home"></i><span>Home</span></a></li>
-    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span>Writing Styles</span></a></li>
-    <li><a href="writingTools.html"><i class="fas fa-tools"></i><span>Writing Tools</span></a></li>
-    <li><a href="writingTest.html"><i class="fas fa-clipboard-check"></i><span>Writing Tests</span></a></li>
-    <li><a href="FAQs.html"><i class="fas fa-question-circle"></i><span>FAQs</span></a></li>
-    <li><a href="#"><i class="fas fa-user"></i><span>Account</span></a></li>
-    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    <li><a href="homePage.html"><i class="fas fa-home"></i><span class="link-text">Home</span></a></li>
+    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span class="link-text">Writing Styles</span></a></li>
+    <li><a href="writingTools.html"><i class="fas fa-tools"></i><span class="link-text">Writing Tools</span></a></li>
+    <li><a href="writingTest.html"><i class="fas fa-clipboard-check"></i><span class="link-text">Writing Tests</span></a></li>
+    <li><a href="FAQs.html"><i class="fas fa-question-circle"></i><span class="link-text">FAQs</span></a></li>
+    <li><a href="account.html"><i class="fas fa-user"></i><span class="link-text">Account</span></a></li>
+    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span class="link-text">Logout</span></a></li>
+  </ul><br><br>
+  <ul class="nav-links">
+    <li><a href="Support.html"><i class="fas fa-headset"></i><span class="link-text">Support</span></a></li>
+    <li><a href="HelperBot.html"><i class="fas fa-robot"></i><span class="link-text">HelperBot</span></a></li>
   </ul>
-
-  <hr class="styled-line">
-
-  <!-- Lower Sidebar -->
-<ul class="lowernavlinks">
-    <li><a href="#"><i class="fas fa-headset"></i><span>Support</span></a></li>
-    <li><a href="#"><i class="fas fa-robot"></i><span>HelperBot</span></a></li>
-</ul>
 </nav>
- 
 
-  <!-- Page Wrapper (main content + footer) -->
+
+<!-- Main Content -->
 <div class="main-wrapper">
-  <header class="main-header">
-  <div class="header-content">
-    <h1>EmpowerWords</h1>
-    <div class="search-bar">
-      <input type="text" placeholder="Search topics, guides, or tools...">
-      <button><i class="fas fa-search"></i></button>
-    </div>
-    <div class="header-buttons">
-      <button class="cta-btn small">Login</button>
-      <button class="cta-btn small secondary">Sign Up</button>
-    </div>
-  </div>
-  </header>
+<main class="main-content">
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Page content here -->
-<!-- FAQ Page: Academic Writing Questions -->
-<div class="faq-wrapper">
-
-  <!-- Search Bar -->
-  <div class="faq-search">
-    <input type="text" id="faqSearch" placeholder="Search FAQs...">
-  </div>
-
-  <main class="faq-page">
+ <main class="faq-page">
     <section class="faqintro">
       <img src="https://cdn.prod.website-files.com/644f9103afe8ee356a093d6f/655cc7e298638b98a0a6f797_One-on-one%20tutoring.webp">
       <p>
@@ -151,23 +138,31 @@
     </div>
   </section>
 
-</main>
 
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2025 AcademicWritingWeb | <a href="privacyPolicy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+  
 </div>
 
+<script>
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebar = document.getElementById('sidebar');
 
-      
-      
-    </main>
+  // Ensure sidebar is visible on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    sidebar.classList.add('show');
+  });
 
-    
+  // Toggle collapsed class on click
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+  });
+</script>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 AcademicWritingWeb | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
-
-  </div>
 
 </body>
 </html>
