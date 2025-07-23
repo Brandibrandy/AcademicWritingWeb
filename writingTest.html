@@ -1,67 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Academic Writing guides</title>
+  <link rel="stylesheet" href="writingTest.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="header-left">
+    <button id="toggleSidebar"><i class="fas fa-bars"></i></button>
+    <a href="homePage.html"><img src="weblogo1.png" alt="Academic hub" class="logo" /></a>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search any major online academic writing topics, styles, or tools...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
+  <div class="header-buttons">
+    <a href="signIn.html" class="cta-btn small">Sign in</a>
+    <a href="signUp.html" class="cta-btn small secondary">Sign Up</a>
+  </div>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar collapsed" id="sidebar">
+  <ul class="nav-links">
+    <li><a href="homePage.html"><i class="fas fa-home"></i><span class="link-text">Home</span></a></li>
+    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span class="link-text">Writing Styles</span></a></li>
+    <li><a href="writingTools.html"><i class="fas fa-tools"></i><span class="link-text">Writing Tools</span></a></li>
+    <li><a href="writingTest.html"><i class="fas fa-clipboard-check"></i><span class="link-text">Writing Tests</span></a></li>
+    <li><a href="FAQs.html"><i class="fas fa-question-circle"></i><span class="link-text">FAQs</span></a></li>
+    <li><a href="account.html"><i class="fas fa-user"></i><span class="link-text">Account</span></a></li>
+    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span class="link-text">Logout</span></a></li>
+  </ul><br><br>
+  <ul class="nav-links">
+    <li><a href="Support.html"><i class="fas fa-headset"></i><span class="link-text">Support</span></a></li>
+    <li><a href="HelperBot.html"><i class="fas fa-robot"></i><span class="link-text">HelperBot</span></a></li>
+  </ul>
+</nav>
+
+
+<!-- Main Content -->
+<div class="main-wrapper">
+<main class="main-content">
+
 <section class="writingtests-intro">
-        <div class="intro-content">
-            <h1>Academic Writing Confidence Test</h1>
-            <p>Welcome to the ultimate academic writing test. This quiz is designed for students who have completed all training in citation styles, research tools, paraphrasing, and plagiarism checking. Passing this test proves you're ready for real academic assignments.</p>
-            <p><strong>Total Questions:</strong> 50 &nbsp; | &nbsp; <strong>Estimated Time:</strong> 25 minutes</p>
-            <button class="start-test-btn">Start Test</button>
-        </div>
-        </section>
+<div class="intro-content">
+    <h1>Academic Writing Confidence Test</h1>
+    <p>Welcome to the ultimate academic writing test. This quiz is designed for students who have completed all training in citation styles, research tools, paraphrasing, and plagiarism checking. Passing this test proves you're ready for real academic assignments.</p>
+    <p><strong>Total Questions:</strong> 50 &nbsp; | &nbsp; <strong>Estimated Time:</strong> 25 minutes</p>
+    <button class="start-test-btn">Start Test</button>
+</div>
+</section>
 
-        <!-- Section 2: Test Instructions -->
-        <section class="writingtests-guidelines">
-        <h2>Before You Begin</h2>
-        <ul>
-            <li>Find a quiet, focused environment.</li>
-            <li>All questions are multiple choice or true/false.</li>
-            <li>You may review answers before submitting.</li>
-            <li>A score of 80%+ earns your Writing Confidence Badge.</li>
-        </ul>
-        </section>
+<!-- Section 2: Test Instructions -->
+<section class="writingtests-guidelines">
+<h2>Before You Begin</h2>
+<ul>
+    <li>Find a quiet, focused environment.</li>
+    <li>All questions are multiple choice or true/false.</li>
+    <li>You may review answers before submitting.</li>
+    <li>A score of 80%+ earns your Writing Confidence Badge.</li>
+</ul>
+</section>
 
-        <!-- Section 3: Dynamic Question Area -->
-        <section class="writingtests-questions">
-        <h2>Answer the Following Questions</h2>
-        <!-- Progress Bar -->
-        <div class="progress-wrapper">
-        <div class="progress-info">
-            <span id="progress-text">0 of 50 answered</span>
-        </div>
-        <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progress-bar-fill"></div>
-        </div>
-        </div>
+<!-- Section 3: Dynamic Question Area -->
+<section class="writingtests-questions">
+<h2>Answer the Following Questions</h2>
+<!-- Progress Bar -->
+<div class="progress-wrapper">
+<div class="progress-info">
+    <span id="progress-text">0 of 50 answered</span>
+</div>
+<div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+</div>
+</div>
 
-        <div class="question-container">
-            <!-- Question 1 example -->
-            <div class="question-block">
-            <p class="question-text">1. Which citation style uses author-date and is commonly used in psychology?</p>
-            <div class="options">
-                <label><input type="radio" name="q1"> APA</label>
-                <label><input type="radio" name="q1"> MLA</label>
-                <label><input type="radio" name="q1"> IEEE</label>
-                <label><input type="radio" name="q1"> Harvard</label>
-            </div>
-            </div>
+<div class="question-container">
+    <!-- Question 1 example -->
+    <div class="question-block">
+    <p class="question-text">1. Which citation style uses author-date and is commonly used in psychology?</p>
+    <div class="options">
+        <label><input type="radio" name="q1"> APA</label>
+        <label><input type="radio" name="q1"> MLA</label>
+        <label><input type="radio" name="q1"> IEEE</label>
+        <label><input type="radio" name="q1"> Harvard</label>
+    </div>
+    </div>
 
-            <!-- Placeholder for dynamic rendering -->
-            <div class="question-placeholder">
-            <p><em>Additional questions will load here dynamically (scroll or pagination)...</em></p>
-            </div>
-        </div>
+    <!-- Placeholder for dynamic rendering -->
+    <div class="question-placeholder">
+    <p><em>Additional questions will load here dynamically (scroll or pagination)...</em></p>
+    </div>
+</div>
 
-        <!-- Navigation Controls -->
-        <div class="quiz-navigation">
-            <button class="prev-btn">Previous</button>
-            <button class="next-btn">Next</button>
-            <button class="submit-btn">Submit Test</button>
-        </div>
-        </section>
+<!-- Navigation Controls -->
+<div class="quiz-navigation">
+    <button class="prev-btn">Previous</button>
+    <button class="next-btn">Next</button>
+    <button class="submit-btn">Submit Test</button>
+</div>
+</section>
 
-        <!-- Section 4: Results -->
-        <section class="writingtests-summary" style="display: none;">
-        <h2>Your Results</h2>
-        <p>You scored <strong>42/50</strong>. Great job!</p>
-        <p><strong>Status:</strong> Passed ✅</p>
-        <p><strong>Feedback:</strong> You’ve shown strong academic writing skills. You're now ready to handle real writing tasks confidently and professionally.</p>
-        <button class="retake-btn">Retake Test</button>
-        </section>
+<!-- Section 4: Results -->
+<section class="writingtests-summary" style="display: none;">
+<h2>Your Results</h2>
+<p>You scored <strong>42/50</strong>. Great job!</p>
+<p><strong>Status:</strong> Passed ✅</p>
+<p><strong>Feedback:</strong> You’ve shown strong academic writing skills. You're now ready to handle real writing tasks confidently and professionally.</p>
+<button class="retake-btn">Retake Test</button>
+</section>
+
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+<p>&copy; 2025 AcademicWritingWeb | <a href="privacyPolicy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+</div>
+
+
+
+<script>
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebar = document.getElementById('sidebar');
+
+  // Ensure sidebar is visible on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    sidebar.classList.add('show');
+  });
+
+  // Toggle collapsed class on click
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+  });
+</script>
+
+
+</body>
+</html>
