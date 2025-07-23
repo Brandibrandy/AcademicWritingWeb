@@ -1,3 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Academic Writing guides</title>
+  <link rel="stylesheet" href="signIn.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="header-left">
+    <button id="toggleSidebar"><i class="fas fa-bars"></i></button>
+    <a href="homePage.html"><img src="weblogo1.png" alt="Academic hub" class="logo" /></a>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search any major online academic writing topics, styles, or tools...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
+  <div class="header-buttons">
+    <a href="signIn.html" class="cta-btn small">Sign in</a>
+    <a href="signUp.html" class="cta-btn small secondary">Sign Up</a>
+  </div>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar collapsed" id="sidebar">
+  <ul class="nav-links">
+    <li><a href="homePage.html"><i class="fas fa-home"></i><span class="link-text">Home</span></a></li>
+    <li><a href="writingStyles.html"><i class="fas fa-pen-nib"></i><span class="link-text">Writing Styles</span></a></li>
+    <li><a href="writingTools.html"><i class="fas fa-tools"></i><span class="link-text">Writing Tools</span></a></li>
+    <li><a href="writingTest.html"><i class="fas fa-clipboard-check"></i><span class="link-text">Writing Tests</span></a></li>
+    <li><a href="FAQs.html"><i class="fas fa-question-circle"></i><span class="link-text">FAQs</span></a></li>
+    <li><a href="account.html"><i class="fas fa-user"></i><span class="link-text">Account</span></a></li>
+    <li><a href="#"><i class="fas fa-sign-out-alt"></i><span class="link-text">Logout</span></a></li>
+  </ul><br><br>
+  <ul class="nav-links">
+    <li><a href="Support.html"><i class="fas fa-headset"></i><span class="link-text">Support</span></a></li>
+    <li><a href="HelperBot.html"><i class="fas fa-robot"></i><span class="link-text">HelperBot</span></a></li>
+  </ul>
+</nav>
+
+
+<!-- Main Content -->
+<div class="main-wrapper">
+<main class="main-content">
+
+
 <section class="login-container">
 
   <!-- LEFT PANEL WITH ICON -->
@@ -50,3 +100,32 @@
     </form>
   </div>
 </section>
+
+
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2025 AcademicWritingWeb | <a href="privacyPolicy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+</footer>
+  
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebar = document.getElementById('sidebar');
+
+  // Ensure sidebar is visible on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    sidebar.classList.add('show');
+  });
+
+  // Toggle collapsed class on click
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+  });
+</script>
+
+
+</body>
+</html>
