@@ -1,3 +1,161 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ececec;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 87px;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#toggleSidebar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.logo {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Sidebar */
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 87px;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  background: #ffffff;
+  color: #000;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 999;
+}
+
+/* Show sidebar (slide in) */
+.sidebar.show {
+  transform: translateX(0%);
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Navigation links container */
+.sidebar .nav-links {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Individual list item */
+.sidebar .nav-links li {
+  text-align: left;
+}
+
+/* Link styling */
+.sidebar .nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+/* Hover effect */
+/* Hover effect */
+.sidebar .nav-links a:hover {
+  background-color: #5e5e5e;
+}
+
+/* Hide text when collapsed */
+.sidebar.collapsed .link-text {
+  display: none;
+}
+
+/* Center icon when collapsed */
+.sidebar.collapsed a {
+  justify-content: center;
+  position: relative; /* Needed for positioning the tooltip-like text */
+}
+
+/* Show text on hover when collapsed */
+.sidebar.collapsed a:hover .link-text {
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background-color: #444; /* Optional: styling */
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 10;
+  margin-left: 8px;
+}
+
+/* Main Wrapper */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: 220px;
+  margin-top: 87px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Adjust margin when sidebar is collapsed */
+.sidebar.collapsed ~ .main-wrapper {
+  margin-left: 70px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2px;
+  background: #f5f5f5;
+}
+
+
 /* LOGIN SECTION */
 .login-container {
   display: flex;
@@ -8,7 +166,7 @@
 /* LEFT PANEL WITH ICON */
 .login-left {
   flex: 1;
-  background: linear-gradient(to top, #ff6a00, #ffa41b);
+  background: linear-gradient(to top, #f3761c, #db9d40);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,5 +360,150 @@
 
   .login-left h1 {
     font-size: 26px;
+  }
+}
+
+
+
+
+/* Footer */
+.footer {
+  background: #b1b1d6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9em;
+  width: 100%;
+}
+.footer a
+{
+ color: #17172b;
+}
+.footer a:hover 
+{
+ color: #0501ff;
+}
+
+
+/* Search Bar Container */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border: 1.8px solid #ccc;
+  border-radius: 24px;
+  padding: 4px 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus-within {
+  border-color: #494864;
+  box-shadow: 0 0 0 3px rgba(63, 61, 163, 0.1);
+}
+
+/* Input Field */
+.search-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #333;
+  background-color: transparent;
+  outline: none;
+}
+
+/* Search Button */
+.search-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: #969699;
+  border: none;
+  border-radius: 24px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background: #1b18ad;
+}
+
+.search-bar button i {
+  font-size: 1.1rem;
+}
+
+
+.header-buttons {
+  display: flex;
+  gap: 30px;
+  border-radius: 24px;
+  height: 50%;
+  
+}
+.header-buttons a{
+
+  border-radius: 24px;
+  text-align: center;
+}
+
+.cta-btn.small {
+  padding: 6px 14px;
+  font-size: 0.9em;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bolder;
+  border: 1px solid #eec780;
+  color: #000;
+  background: transparent;
+}
+
+.cta-btn.small.secondary {
+  border: 1px solid #80f1b3;
+}
+
+.cta-btn.small:hover {
+  background: #f8b840;
+}
+
+.cta-btn.small.secondary:hover {
+  background: #46ff99;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-wrapper {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 87px;
+  }
+
+  .sidebar.collapsed {
+    width: 100%;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .header-buttons {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
